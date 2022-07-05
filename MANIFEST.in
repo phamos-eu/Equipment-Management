@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include equipment_management *.css
+recursive-include equipment_management *.csv
+recursive-include equipment_management *.html
+recursive-include equipment_management *.ico
+recursive-include equipment_management *.js
+recursive-include equipment_management *.json
+recursive-include equipment_management *.md
+recursive-include equipment_management *.png
+recursive-include equipment_management *.py
+recursive-include equipment_management *.svg
+recursive-include equipment_management *.txt
+recursive-exclude equipment_management *.pyc
