@@ -95,13 +95,11 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-#	}
-# }
+doc_events = {
+	"Problem Report": {
+		"on_update": "equipment_management.equipment_management.doctype.problem_report.problem_report.update_equipment_status",
+	}
+}
 
 # Scheduled Tasks
 # ---------------

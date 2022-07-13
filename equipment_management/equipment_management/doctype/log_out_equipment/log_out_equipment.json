@@ -1,0 +1,90 @@
+{
+ "actions": [
+  {
+   "action": "https://eusectra.frappe.cloud/app/query-report/Equipment%20Log%20Book",
+   "action_type": "Route",
+   "label": "View Log Book"
+  },
+  {
+   "action": "/",
+   "action_type": "Route",
+   "group": "Action",
+   "label": "Log in to System"
+  }
+ ],
+ "allow_rename": 1,
+ "creation": "2022-05-05 17:39:33.076377",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "equipment",
+  "last_location",
+  "equipment_status",
+  "column_break_5",
+  "comment"
+ ],
+ "fields": [
+  {
+   "description": "Posting Date when the Equipment is logged out of the system",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "options": "Today"
+  },
+  {
+   "description": "Link to Equipment that will be logged out",
+   "fieldname": "equipment",
+   "fieldtype": "Link",
+   "label": "Equipment",
+   "options": "Equipment"
+  },
+  {
+   "default": "Out Equipment Loaned",
+   "description": "This Location will be transfered to the linked Equipment",
+   "fieldname": "last_location",
+   "fieldtype": "Link",
+   "label": "Last Location",
+   "options": "Location"
+  },
+  {
+   "fieldname": "equipment_status",
+   "fieldtype": "Select",
+   "label": "Equipment Status",
+   "options": "\nWorking\nNot Working\nIn Repair\nScraped\nLent"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "comment",
+   "fieldtype": "Small Text",
+   "label": "Comment"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-07-12 08:47:39.361975",
+ "modified_by": "Administrator",
+ "module": "Equipment Management",
+ "name": "Log Out Equipment",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

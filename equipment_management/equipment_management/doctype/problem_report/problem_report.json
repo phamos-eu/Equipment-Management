@@ -1,0 +1,119 @@
+{
+ "actions": [
+  {
+   "action": "https://eusectra.frappe.cloud/app/query-report/Equipment%20Log%20Book",
+   "action_type": "Route",
+   "label": "View Log Book"
+  },
+  {
+   "action": "/",
+   "action_type": "Route",
+   "group": "Action",
+   "label": "Send to Repair"
+  },
+  {
+   "action": "/",
+   "action_type": "Route",
+   "group": "Action",
+   "label": "Scrap"
+  },
+  {
+   "action": "/",
+   "action_type": "Route",
+   "group": "Action",
+   "label": "Take out of system"
+  }
+ ],
+ "allow_rename": 1,
+ "creation": "2022-05-05 17:12:02.923665",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "posting_date",
+  "status",
+  "equipment",
+  "equipment_status",
+  "column_break_5",
+  "status_comment",
+  "section_break_7",
+  "problem_troubleshooting"
+ ],
+ "fields": [
+  {
+   "description": "Should automatically be the date of creation",
+   "fieldname": "posting_date",
+   "fieldtype": "Datetime",
+   "label": "Posting Date",
+   "options": "Today"
+  },
+  {
+   "description": "The Status set here will influence the status of the Equipment",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Open\nResolved"
+  },
+  {
+   "description": "Link field to the equipment that is not working",
+   "fieldname": "equipment",
+   "fieldtype": "Link",
+   "label": "Equipment",
+   "options": "Equipment",
+   "set_only_once": 1
+  },
+  {
+   "description": "The status of the equipment when the problem was discovered.",
+   "fieldname": "equipment_status",
+   "fieldtype": "Select",
+   "label": "Equipment Status",
+   "options": "Working\nNot Working"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Description of the problem with the equipment",
+   "fieldname": "status_comment",
+   "fieldtype": "Text",
+   "label": "Status Comment"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "problem_troubleshooting",
+   "fieldtype": "Table",
+   "label": "Problem Troubleshooting",
+   "options": "Problem Troubleshooting"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-07-12 08:48:14.670964",
+ "modified_by": "Administrator",
+ "module": "Equipment Management",
+ "name": "Problem Report",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "status_comment"
+}

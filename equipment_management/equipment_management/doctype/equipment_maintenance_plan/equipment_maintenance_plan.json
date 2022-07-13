@@ -1,0 +1,74 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-03-24 10:56:30.048801",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "equipment",
+  "responsible_officer",
+  "maintenance_plan_tasks",
+  "comment"
+ ],
+ "fields": [
+  {
+   "fieldname": "equipment",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Equipment",
+   "options": "Equipment",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "equipment.responsible_officer",
+   "fetch_if_empty": 1,
+   "fieldname": "responsible_officer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Responsible Officer",
+   "options": "User"
+  },
+  {
+   "fieldname": "maintenance_plan_tasks",
+   "fieldtype": "Table",
+   "label": "Maintenance Plan Tasks",
+   "options": "Maintenance Plan Tasks"
+  },
+  {
+   "fieldname": "comment",
+   "fieldtype": "Small Text",
+   "label": "Comment"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Equipment Maintenance",
+   "link_fieldname": "equipment_maintenance_plan"
+  }
+ ],
+ "modified": "2022-07-12 09:07:23.791559",
+ "modified_by": "Administrator",
+ "module": "Equipment Management",
+ "name": "Equipment Maintenance Plan",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
