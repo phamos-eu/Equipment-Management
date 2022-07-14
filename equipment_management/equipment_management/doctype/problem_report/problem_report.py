@@ -9,4 +9,12 @@ class ProblemReport(Document):
 
 
 def update_equipment_status(doc,method):
-	pass
+	equip_doc = frappe.get_doc('Equipment', doc.equipment)
+	if frappe.db.exists("Problem Report", {'equipment':doc.equipment,'status':'Open','equipment_status':'Not Working'}):
+		equip_doc.status = "Not Working"
+		equip_doc.save(ignore_permissions=True)
+
+	else:
+		equip_doc.status = "Working"
+		equip_doc.save(ignore_permissions=True)
+
