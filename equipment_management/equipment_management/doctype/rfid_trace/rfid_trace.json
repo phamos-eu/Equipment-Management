@@ -6,7 +6,9 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "date",
+  "posting_date",
+  "posting_time",
+  "edit_posting_time",
   "equipment",
   "rfid_tag",
   "column_break_4",
@@ -17,12 +19,6 @@
   "mac_address"
  ],
  "fields": [
-  {
-   "fieldname": "date",
-   "fieldtype": "Datetime",
-   "in_list_view": 1,
-   "label": "Date"
-  },
   {
    "fieldname": "equipment",
    "fieldtype": "Link",
@@ -68,11 +64,34 @@
    "fieldname": "mac_address",
    "fieldtype": "Data",
    "label": "MAC Address"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Posting Date",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "default": "Now",
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Posting Time",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "edit_posting_time",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Edit Posting Date and Time"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-12 08:42:50.124971",
+ "modified": "2022-07-15 13:06:11.588920",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "RFID Trace",
@@ -91,6 +110,6 @@
    "write": 1
   }
  ],
- "sort_field": "date",
+ "sort_field": "posting_date",
  "sort_order": "DESC"
 }

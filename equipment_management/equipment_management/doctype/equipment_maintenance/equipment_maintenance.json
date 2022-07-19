@@ -21,6 +21,8 @@
  "engine": "InnoDB",
  "field_order": [
   "posting_date",
+  "posting_time",
+  "edit_posting_time",
   "equipment",
   "responsible_officer",
   "status",
@@ -34,9 +36,11 @@
  ],
  "fields": [
   {
+   "default": "Today",
    "fieldname": "posting_date",
-   "fieldtype": "Datetime",
+   "fieldtype": "Date",
    "label": "Posting Date",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -72,7 +76,8 @@
    "fieldname": "equipment_status",
    "fieldtype": "Select",
    "label": "Equipment Status",
-   "options": "Working\nNot Working"
+   "options": "Working\nNot Working",
+   "permlevel": 1
   },
   {
    "fieldname": "column_break_6",
@@ -98,11 +103,25 @@
    "fieldtype": "Link",
    "label": "Equipment Maintenance Plan",
    "options": "Equipment Maintenance Plan"
+  },
+  {
+   "default": "Now",
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Posting Time",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "edit_posting_time",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Edit Posting Date and Time"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-12 08:07:08.509117",
+ "modified": "2022-07-18 11:09:22.517830",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment Maintenance",

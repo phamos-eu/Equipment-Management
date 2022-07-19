@@ -1,11 +1,6 @@
 {
  "actions": [
   {
-   "action": "https://eusectra.frappe.cloud/app/query-report/Equipment%20Log%20Book",
-   "action_type": "Route",
-   "label": "View Log Book"
-  },
-  {
    "action": "/",
    "action_type": "Route",
    "group": "Action",
@@ -31,6 +26,8 @@
  "engine": "InnoDB",
  "field_order": [
   "posting_date",
+  "posting_time",
+  "edit_posting_time",
   "status",
   "equipment",
   "equipment_status",
@@ -41,11 +38,13 @@
  ],
  "fields": [
   {
+   "default": "Today",
    "description": "Should automatically be the date of creation",
    "fieldname": "posting_date",
-   "fieldtype": "Datetime",
+   "fieldtype": "Date",
    "label": "Posting Date",
-   "options": "Today"
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "description": "The Status set here will influence the status of the Equipment",
@@ -90,11 +89,25 @@
    "fieldtype": "Table",
    "label": "Problem Troubleshooting",
    "options": "Problem Troubleshooting"
+  },
+  {
+   "default": "Now",
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Posting Time",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "edit_posting_time",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Edit Posting Date and Time"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-12 08:48:14.670964",
+ "modified": "2022-07-19 06:22:09.839430",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Problem Report",

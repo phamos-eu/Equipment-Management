@@ -9,6 +9,8 @@
  "field_order": [
   "equipment",
   "posting_date",
+  "posting_time",
+  "edit_posting_time",
   "type",
   "column_break_4",
   "comment",
@@ -31,11 +33,12 @@
    "reqd": 1
   },
   {
-   "allow_in_quick_entry": 1,
+   "default": "Today",
    "fieldname": "posting_date",
-   "fieldtype": "Datetime",
+   "fieldtype": "Date",
    "in_list_view": 1,
    "label": "Posting Date",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -104,11 +107,25 @@
    "fieldname": "some_repair_information",
    "fieldtype": "Data",
    "label": "Some Repair Information"
+  },
+  {
+   "default": "Now",
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Posting Time",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "edit_posting_time",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Edit Posting Date and Time"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-12 08:43:19.331504",
+ "modified": "2022-07-15 13:23:37.160401",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Manual Equipment Movement",
@@ -127,7 +144,6 @@
    "write": 1
   }
  ],
- "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC"
 }
