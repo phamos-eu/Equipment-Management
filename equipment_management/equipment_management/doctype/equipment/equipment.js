@@ -33,40 +33,44 @@ frappe.ui.form.on('Equipment', {
 			$('.indicator-pill.whitespace-nowrap').removeClass('gray')
 			$('.indicator-pill.whitespace-nowrap').addClass('red')
 		}
-		cur_frm.add_custom_button(__('Ledger'), function () {
+		cur_frm.add_custom_button(__('View Log Book'), function () {
 			frappe.set_route('query-report', 'Equipment Ledger',
 					{equipment: frm.doc.name});
 		});
 
 		cur_frm.add_custom_button(__('Report a Problem'), function () {
-			frappe.set_route('problem-report','new-problem-report-1',
+			frappe.set_route('problem-report','new-problem-report',
 					{equipment: frm.doc.name});
 			
 		},__('Problem & Maintenance'));
 
 		cur_frm.add_custom_button(__('Perform Equipment Maintenance'), function () {
-			frappe.set_route('equipment-maintenance','new-equipment-maintenance-1',
+			frappe.set_route('equipment-maintenance','new-equipment-maintenance',
 					{equipment: frm.doc.name});
 			
 		},__('Problem & Maintenance'));
 
 		cur_frm.add_custom_button(__('Scrap'), function () {
-			frappe.set_route('manual-equipment-movement','new-manual-equipment-movement-1',
+			frappe.set_route('manual-equipment-movement','new-manual-equipment-movement',
 					{equipment: frm.doc.name, type: 'Scrap'});
 			
 		},__('Manual Equipment Movement'));
 
 		cur_frm.add_custom_button(__('Loan'), function () {
-			frappe.set_route('manual-equipment-movement','new-manual-equipment-movement-1',
+			frappe.set_route('manual-equipment-movement','new-manual-equipment-movement',
 					{equipment: frm.doc.name, type: 'Loan'});
 			
 		},__('Manual Equipment Movement'));
 
 		cur_frm.add_custom_button(__('Send to Repair'), function () {
-			frappe.set_route('manual-equipment-movement','new-manual-equipment-movement-1',
+			frappe.set_route('manual-equipment-movement','new-manual-equipment-movement',
 					{equipment: frm.doc.name, type: 'Repair'});
 			
 		},__('Manual Equipment Movement'));
+	
+		if (!frappe.user.has_role('System Manager') && frappe.user.has_role('eusectra basic User')) {
+			frm.set_df_property('status', 'hidden',1)
+		}
 		
 	}
 });
