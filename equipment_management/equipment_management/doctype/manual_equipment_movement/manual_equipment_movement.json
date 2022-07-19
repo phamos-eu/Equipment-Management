@@ -1,0 +1,149 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{equipment} {type} on {date}",
+ "creation": "2022-06-07 18:45:05.320341",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "equipment",
+  "posting_date",
+  "posting_time",
+  "edit_posting_time",
+  "type",
+  "column_break_4",
+  "comment",
+  "maintenance_section",
+  "maintenance_tasks",
+  "scrap_section",
+  "some_scrap_information",
+  "loan_section",
+  "some_loan_information",
+  "repair_section",
+  "some_repair_information"
+ ],
+ "fields": [
+  {
+   "fieldname": "equipment",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Equipment",
+   "options": "Equipment",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Posting Date",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Type",
+   "options": "\nLoan\nRepair\nScrap",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "depends_on": "eval:doc.type != 0",
+   "fieldname": "comment",
+   "fieldtype": "Small Text",
+   "label": "Comment",
+   "mandatory_depends_on": "eval:doc.type != 0",
+   "options": "{{type}}"
+  },
+  {
+   "depends_on": "eval:doc.type == 'Maintenance'",
+   "fieldname": "maintenance_section",
+   "fieldtype": "Section Break",
+   "label": "Maintenance"
+  },
+  {
+   "fieldname": "maintenance_tasks",
+   "fieldtype": "Table",
+   "label": "Maintenance Tasks",
+   "options": "Maintenance Tasks"
+  },
+  {
+   "depends_on": "eval:doc.type == 'Scrap'",
+   "fieldname": "scrap_section",
+   "fieldtype": "Section Break",
+   "label": "Scrap"
+  },
+  {
+   "fieldname": "some_scrap_information",
+   "fieldtype": "Data",
+   "label": "Some Scrap Information"
+  },
+  {
+   "depends_on": "eval:doc.type == 'Loan'",
+   "fieldname": "loan_section",
+   "fieldtype": "Section Break",
+   "label": "Loan"
+  },
+  {
+   "fieldname": "some_loan_information",
+   "fieldtype": "Data",
+   "label": "Some Loan Information"
+  },
+  {
+   "depends_on": "eval:doc.type == 'Repair'",
+   "fieldname": "repair_section",
+   "fieldtype": "Section Break",
+   "label": "Repair"
+  },
+  {
+   "fieldname": "some_repair_information",
+   "fieldtype": "Data",
+   "label": "Some Repair Information"
+  },
+  {
+   "default": "Now",
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Posting Time",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "edit_posting_time",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Edit Posting Date and Time"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-07-15 13:23:37.160401",
+ "modified_by": "Administrator",
+ "module": "Equipment Management",
+ "name": "Manual Equipment Movement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

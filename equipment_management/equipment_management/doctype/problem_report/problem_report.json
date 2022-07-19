@@ -1,0 +1,132 @@
+{
+ "actions": [
+  {
+   "action": "/",
+   "action_type": "Route",
+   "group": "Action",
+   "label": "Send to Repair"
+  },
+  {
+   "action": "/",
+   "action_type": "Route",
+   "group": "Action",
+   "label": "Scrap"
+  },
+  {
+   "action": "/",
+   "action_type": "Route",
+   "group": "Action",
+   "label": "Take out of system"
+  }
+ ],
+ "allow_rename": 1,
+ "creation": "2022-05-05 17:12:02.923665",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "posting_date",
+  "posting_time",
+  "edit_posting_time",
+  "status",
+  "equipment",
+  "equipment_status",
+  "column_break_5",
+  "status_comment",
+  "section_break_7",
+  "problem_troubleshooting"
+ ],
+ "fields": [
+  {
+   "default": "Today",
+   "description": "Should automatically be the date of creation",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "description": "The Status set here will influence the status of the Equipment",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Open\nResolved"
+  },
+  {
+   "description": "Link field to the equipment that is not working",
+   "fieldname": "equipment",
+   "fieldtype": "Link",
+   "label": "Equipment",
+   "options": "Equipment",
+   "set_only_once": 1
+  },
+  {
+   "description": "The status of the equipment when the problem was discovered.",
+   "fieldname": "equipment_status",
+   "fieldtype": "Select",
+   "label": "Equipment Status",
+   "options": "Working\nNot Working"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Description of the problem with the equipment",
+   "fieldname": "status_comment",
+   "fieldtype": "Text",
+   "label": "Status Comment"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "problem_troubleshooting",
+   "fieldtype": "Table",
+   "label": "Problem Troubleshooting",
+   "options": "Problem Troubleshooting"
+  },
+  {
+   "default": "Now",
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Posting Time",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "edit_posting_time",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Edit Posting Date and Time"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-07-19 06:22:09.839430",
+ "modified_by": "Administrator",
+ "module": "Equipment Management",
+ "name": "Problem Report",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "status_comment"
+}

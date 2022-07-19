@@ -1,0 +1,32 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2022-07-14 08:35:59.264135",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [
+  {
+   "fieldname": "equipment",
+   "fieldtype": "Link",
+   "label": "Equipment",
+   "mandatory": 1,
+   "options": "Equipment",
+   "wildcard_filter": 0
+  }
+ ],
+ "idx": 0,
+ "is_standard": "Yes",
+ "modified": "2022-07-18 18:26:22.022566",
+ "modified_by": "Administrator",
+ "module": "Equipment Management",
+ "name": "Equipment Ledger",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "select\n    IFNULL(eqprob.posting_date, eqprob.modified) as \"Posting Date:Datetime:150\",\n    eq.name as \"Equipment:Link/Equipment:150\",\n    eq.status as \"Equipment Status:Select:150\",\n    eq.item_code as \"Item Code:Data/Item:150\",\n    eq.location as \"Location:Data/Location:150\",\n    doctype.name as \"DocType:Data/DocType:150\",\n    eqprob.status as \"Status:Select:150\",\n    eqprob.name as \"Reference:Dynamic Link/doc_type:150\"\n\nfrom\n    `tabEquipment` eq,`tabProblem Report` eqprob,`tabDocType` doctype,`tabRFID Trace` rf\nwhere\n    eq.name = eqprob.equipment and\n    eq.name = %(equipment)s and\n    doctype.name = 'Problem Report'\nunion\nselect\n    IFNULL(eqmaint.posting_date, eqmaint.modified) as \"Posting Date:Date:150\",\n    eq.name as \"Equipment:Link/Equipment:200\",\n    eq.status as \"Equipment Status:Select:100\",\n    eq.item_code as \"Item Code:Link/Item:200\",\n    eq.location as \"Location:Link/Location:200\",\n    'Equipment Maintenance' as \"Reference Type:Link/DocType:150\",\n    eqmaint.status as \"Status:Select:100\",\n    eqmaint.name as \"Reference:Dynamic Link/Problem Report:200\"\n\nfrom \n    `tabEquipment` eq,`tabEquipment Maintenance` eqmaint\nwhere\n    eq.name = eqmaint.equipment and\n    eq.name = %(equipment)s\nunion\nselect\n    IFNULL(eqlog.posting_date, eqlog.modified) as \"Posting Date:Date:150\",\n    eq.name as \"Equipment:Link/Equipment:200\",\n    eq.status as \"Equipment Status:Select:100\",\n    eq.item_code as \"Item Code:Link/Item:200\",\n    eq.location as \"Location:Link/Location:200\",\n    'Equipment Log' as \"Reference Type:Data:150\",\n    eqlog.status as \"Status:Select:100\",\n    eqlog.name as \"Reference:Link/Equipment Log:200\"\n    \nfrom\n    `tabEquipment` eq,`tabEquipment Log` eqlog\nwhere\n    eq.name = eqlog.equipment and\n    eq.name = %(equipment)s\n\nunion\nselect\n    IFNULL(rf.posting_date, rf.modified) as \"Posting Date:Date:150\",\n    eq.name as \"Equipment:Link/Equipment:200\",\n    eq.status as \"Equipment Status:Select:100\",\n    eq.item_code as \"Item Code:Link/Item:200\",\n    eq.location as \"Location:Link/Location:200\",\n    'RFID Trace' as \"Reference Type:Data:150\",\n    null as \"Status:Select:100\",\n    rf.name as \"Reference:Link/RFID Trace:200\"\n    \nfrom\n    `tabEquipment` eq,`tabRFID Trace` rf\nwhere\n    eq.name = rf.equipment and\n    eq.name = %(equipment)s\n\nunion\nselect\n    IFNULL(mem.posting_date, mem.modified) as \"Posting Date:Date:150\",\n    eq.name as \"Equipment:Link/Equipment:200\",\n    eq.status as \"Equipment Status:Select:100\",\n    eq.item_code as \"Item Code:Link/Item:200\",\n    eq.location as \"Location:Link/Location:200\",\n    'Manual Equipment Movement' as \"Reference Type:Data:150\",\n    mem.type as \"Status:Select:100\",\n    mem.name as \"Reference:Link/RFID Trace:200\"\n    \nfrom\n    `tabEquipment` eq,`tabManual Equipment Movement` mem\nwhere\n    eq.name = mem.equipment and\n    eq.name = %(equipment)s",
+ "ref_doctype": "Equipment",
+ "report_name": "Equipment Ledger",
+ "report_type": "Query Report",
+ "roles": []
+}

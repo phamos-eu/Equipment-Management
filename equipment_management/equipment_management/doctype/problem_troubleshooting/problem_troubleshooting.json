@@ -1,0 +1,54 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-05-24 14:38:05.124374",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "action_taken",
+  "person",
+  "equipment_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date"
+  },
+  {
+   "fieldname": "action_taken",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Action Taken"
+  },
+  {
+   "fieldname": "person",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Person",
+   "options": "User"
+  },
+  {
+   "fieldname": "equipment_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Equipment Status",
+   "options": "\nWorking\nNot Working",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-07-12 08:43:52.690218",
+ "modified_by": "Administrator",
+ "module": "Equipment Management",
+ "name": "Problem Troubleshooting",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
