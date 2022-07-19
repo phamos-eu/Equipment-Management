@@ -101,6 +101,7 @@ doc_events = {
 	}
 }
 
+after_migrate = ["equipment_management.migrate.update_equipment_status_on_migrate"]
 # Scheduled Tasks
 # ---------------
 
