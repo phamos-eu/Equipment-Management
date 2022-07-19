@@ -9,7 +9,7 @@ class Equipment(Document):
 
 @frappe.whitelist()
 def problem_report_exist(name):
-	pr_doc = frappe.db.exists("Problem Report",{'equipment':name})
+	pr_doc = frappe.db.exists("Problem Report",{'equipment':name,'status':'Open'})
 	if pr_doc:
 		return 1
 	return 0

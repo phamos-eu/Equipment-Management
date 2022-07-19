@@ -1,36 +1,5 @@
 {
- "actions": [
-  {
-   "action": "/equipment-problem/new-equipment-problem-1",
-   "action_type": "Route",
-   "group": "Problem & Maintenance",
-   "label": "Report a Problem"
-  },
-  {
-   "action": "/equipment-maintenance/new-equipment-maintenance-1",
-   "action_type": "Route",
-   "group": "Problem & Maintenance",
-   "label": "Perform Equipment Maintenance"
-  },
-  {
-   "action": "/equipment-actions/new-equipment-actions-1",
-   "action_type": "Route",
-   "group": "Manual Equipment Movement",
-   "label": "Scrap"
-  },
-  {
-   "action": "/equipment-actions/new-equipment-actions-1",
-   "action_type": "Route",
-   "group": "Manual Equipment Movement",
-   "label": "Loan"
-  },
-  {
-   "action": "/equipment-actions/new-equipment-actions-1",
-   "action_type": "Route",
-   "group": "Manual Equipment Movement",
-   "label": "Send to Repair"
-  }
- ],
+ "actions": [],
  "allow_rename": 1,
  "autoname": "naming_series:",
  "creation": "2022-07-12 07:15:07.151197",
@@ -60,13 +29,14 @@
   "maintenance_tasks",
   "attachments_section",
   "manual",
-  "warrenty_information",
+  "warranty_information",
   "date_sheet",
   "import_section",
   "status_working",
   "purchase_information_section",
   "supplier",
-  "price"
+  "price",
+  "indicator"
  ],
  "fields": [
   {
@@ -90,7 +60,8 @@
    "in_preview": 1,
    "in_standard_filter": 1,
    "label": "Status",
-   "options": "\nWorking\nNot Working"
+   "options": "\nWorking\nNot Working",
+   "permlevel": 1
   },
   {
    "fieldname": "equipment_details_section",
@@ -202,11 +173,6 @@
    "label": "Manual"
   },
   {
-   "fieldname": "warrenty_information",
-   "fieldtype": "Attach",
-   "label": "Warrenty Information"
-  },
-  {
    "fieldname": "date_sheet",
    "fieldtype": "Attach",
    "label": "Date Sheet"
@@ -238,6 +204,18 @@
    "fieldname": "price",
    "fieldtype": "Data",
    "label": "Price"
+  },
+  {
+   "fieldname": "indicator",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Indicator",
+   "read_only": 1
+  },
+  {
+   "fieldname": "warranty_information",
+   "fieldtype": "Attach",
+   "label": "Warranty Information"
   }
  ],
  "image_field": "image",
@@ -260,7 +238,7 @@
    "link_fieldname": "equipment"
   }
  ],
- "modified": "2022-07-12 14:16:19.708269",
+ "modified": "2022-07-18 17:42:53.331607",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment",
