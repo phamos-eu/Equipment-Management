@@ -9,7 +9,7 @@
  "filters": [],
  "idx": 0,
  "is_standard": "Yes",
- "modified": "2022-07-20 09:49:53.198801",
+ "modified": "2022-07-20 12:40:50.499401",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment Report",
@@ -17,6 +17,7 @@
  "prepared_report": 0,
  "query": "",
  "ref_doctype": "Equipment",
+ "reference_report": "",
  "report_name": "Equipment Report",
  "report_type": "Script Report",
  "roles": []
