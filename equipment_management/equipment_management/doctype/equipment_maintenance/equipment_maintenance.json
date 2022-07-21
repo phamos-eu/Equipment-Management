@@ -105,7 +105,6 @@
    "options": "Equipment Maintenance Plan"
   },
   {
-   "default": "Now",
    "fieldname": "posting_time",
    "fieldtype": "Time",
    "label": "Posting Time",
@@ -121,7 +120,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-18 11:09:22.517830",
+ "modified": "2022-07-20 13:50:55.754622",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment Maintenance",

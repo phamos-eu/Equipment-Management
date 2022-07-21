@@ -4,6 +4,7 @@
 frappe.ui.form.on('RFID Trace', {
 	refresh: function(frm) {
 		if (frm.is_new()) {
+			frm.set_value('posting_time',frappe.datetime.now_time())
 			frm.set_df_property('edit_posting_time','hidden',0)
 		}
 	},

@@ -75,7 +75,6 @@
    "reqd": 1
   },
   {
-   "default": "Now",
    "fieldname": "posting_time",
    "fieldtype": "Time",
    "label": "Posting Time",
@@ -91,7 +90,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-15 13:06:11.588920",
+ "modified": "2022-07-20 14:27:14.102512",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "RFID Trace",
