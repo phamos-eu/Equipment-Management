@@ -76,8 +76,7 @@
    "fieldname": "equipment_status",
    "fieldtype": "Select",
    "label": "Equipment Status",
-   "options": "Working\nNot Working",
-   "permlevel": 1
+   "options": "Working\nNot Working"
   },
   {
    "fieldname": "column_break_6",
@@ -120,7 +119,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-20 13:50:55.754622",
+ "modified": "2022-07-22 12:00:14.051965",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment Maintenance",
