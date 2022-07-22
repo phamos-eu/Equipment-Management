@@ -31,5 +31,13 @@ frappe.listview_settings['Equipment'] = {
             }
             
         }
+    },
+    onload: function(listview) {
+        // if (cur_list.view === "Report") {
+        //     frappe.set_route('query-report','Equipment Report')
+        // }
+        cur_list.page.add_button(__('Equipment Report'), function () {
+			frappe.set_route('query-report', 'Equipment Report');
+		});
     }
 }
