@@ -7,6 +7,7 @@ frappe.ui.form.on('Problem Report', {
 		$('.next-doc').hide();
 		$('.timeline-actions').hide();
 		if (frm.is_new()) {
+			frm.set_value('posting_time',frappe.datetime.now_time())
 			frm.set_df_property('edit_posting_time','hidden',0)
 		}
 		cur_frm.add_custom_button(__('View Log Book'), function () {
