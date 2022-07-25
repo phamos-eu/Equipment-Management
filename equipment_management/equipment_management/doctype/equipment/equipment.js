@@ -45,8 +45,16 @@ frappe.ui.form.on('Equipment', {
 		},__('Problem & Maintenance'));
 
 		cur_frm.add_custom_button(__('Perform Equipment Maintenance'), function () {
-			frappe.set_route('equipment-maintenance','new-equipment-maintenance',
-					{equipment: frm.doc.name});
+			frappe.new_doc("Equipment Maintenance", "new-equipment-maintenance", doc => {
+				doc.equipment = frm.doc.name
+				frm.doc.maintenance_tasks.forEach((row,index) => {
+					let table = frappe.model.add_child(doc,'maintenance_tasks')
+					table.task = row.task
+					table.status = row.status
+					table.description = row.description
+				})
+				cur_frm.refresh_fields('maintenance_tasks')
+			});
 			
 		},__('Problem & Maintenance'));
 
@@ -71,6 +79,10 @@ frappe.ui.form.on('Equipment', {
 		if (!frappe.user.has_role('System Manager') && frappe.user.has_role('eusectra basic User')) {
 			frm.set_df_property('status', 'hidden',1)
 		}
+		// Hide + button
+		$('button[data-doctype="Problem Report"]').hide()
+		$('button[data-doctype="Equipment Maintenance"]').hide()
+		$('button[data-doctype="Manual Equipment Movement"]').hide()
 		
 	}
 });
