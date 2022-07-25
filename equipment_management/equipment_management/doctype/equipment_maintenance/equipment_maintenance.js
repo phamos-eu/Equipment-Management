@@ -3,10 +3,16 @@
 
 frappe.ui.form.on('Equipment Maintenance', {
 	refresh: function(frm) {
+		frm.refresh_fields('maintenance_tasks')
 		if (frm.is_new()) {
 			frm.set_value('posting_time',frappe.datetime.now_time())
 			frm.set_df_property('edit_posting_time','hidden',0)
 		}
+		if (frm.doc.posting_time===undefined) {
+			cur_frm.set_value('posting_date',cur_frm.doc.creation.split(' ')[0])
+			cur_frm.set_value('posting_time',cur_frm.doc.creation.split(' ')[1])
+		}
+
 		cur_frm.add_custom_button(__('View Log Book'), function () {
 			frappe.set_route('query-report', 'Equipment Ledger',
 					{equipment: frm.doc.equipment});

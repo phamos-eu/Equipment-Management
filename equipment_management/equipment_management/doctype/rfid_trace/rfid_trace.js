@@ -7,6 +7,11 @@ frappe.ui.form.on('RFID Trace', {
 			frm.set_value('posting_time',frappe.datetime.now_time())
 			frm.set_df_property('edit_posting_time','hidden',0)
 		}
+		if (frm.doc.posting_time===undefined) {
+			cur_frm.set_value('posting_date',cur_frm.doc.creation.split(' ')[0])
+			cur_frm.set_value('posting_time',cur_frm.doc.creation.split(' ')[1])
+		}
+		
 	},
 	edit_posting_time: function(frm) {
 		if (frm.is_new()) {

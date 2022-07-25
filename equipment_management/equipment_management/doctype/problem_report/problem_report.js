@@ -14,6 +14,10 @@ frappe.ui.form.on('Problem Report', {
 			frappe.set_route('query-report', 'Equipment Ledger',
 					{equipment: frm.doc.equipment});
 		});
+		if (frm.doc.posting_time===undefined) {
+			cur_frm.set_value('posting_date',cur_frm.doc.creation.split(' ')[0])
+			cur_frm.set_value('posting_time',cur_frm.doc.creation.split(' ')[1])
+		}
 	},
 	edit_posting_time: function(frm) {
 		if (frm.is_new()) {
