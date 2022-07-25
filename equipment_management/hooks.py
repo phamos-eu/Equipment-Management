@@ -58,7 +58,7 @@ fixtures = ["Workspace"]
 # ------------
 
 # before_install = "equipment_management.install.before_install"
-# after_install = "equipment_management.install.after_install"
+after_install = ["equipment_management.migrate.update_equipment_status_on_migrate"]
 
 # Uninstallation
 # ------------
