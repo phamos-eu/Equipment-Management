@@ -15,7 +15,7 @@ app_license = "MIT"
 fixtures = ["Workspace"]
 # include js, css files in header of desk.html
 # app_include_css = "/assets/equipment_management/css/equipment_management.css"
-# app_include_js = "/assets/equipment_management/js/equipment_management.js"
+app_include_js = "/assets/js/equipment_management.min.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/equipment_management/css/equipment_management.css"
