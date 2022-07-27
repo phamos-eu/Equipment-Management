@@ -27,6 +27,41 @@ frappe.query_reports["Equipment Report"] = {
 			fieldname: "category",
 			fieldtype: "Link",
 			options: "Item Group",
+		},
+	],
+	formatter: function (value, cell, columnDef, row) {
+		
+		if (columnDef.fieldname === "name")
+			value  = `<a href='/app/equipment/${value}' target=_blank> ${value} </a>`;
+
+		if (columnDef.fieldname === "status") {
+			if (row.indicator===1) {
+                return `<span class="ellipsis" title="Status: ${value}">
+                <span class="filterable indicator-pill green ellipsis" data-filter="status,=,${value}">
+                    <span class="ellipsis"> ${value} </span>
+                </span>
+            </span>`
+            }
+            else if (row.indicator===2) {
+                return `<span class="ellipsis" title="Status: ${value}">
+                <span class="filterable indicator-pill orange ellipsis" data-filter="status,=,${value}">
+                    <span class="ellipsis"> ${value} </span>
+                </span>
+            </span>`
+            }
+            else if (row.indicator===3) {
+                return `<span class="ellipsis" title="Status: ${value}">
+                <span class="filterable indicator-pill red ellipsis" data-filter="status,=,${value}">
+                    <span class="ellipsis"> ${value} </span>
+                </span>
+            </span>`
+            } else {
+                return `<span class="ellipsis" title="Status: ${value}">
+                <span class="filterable indicator-pill gray ellipsis" data-filter="status,=,${value}">
+                    <span class="ellipsis"> ${value} </span>
+                </span>`
+            }
 		}
-	]
+		return value
+	}
 };
