@@ -9,7 +9,7 @@
  "filters": [],
  "idx": 0,
  "is_standard": "Yes",
- "modified": "2022-07-21 11:26:46.905359",
+ "modified": "2022-07-28 11:44:24.490025",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment Report",
@@ -20,5 +20,9 @@
  "reference_report": "",
  "report_name": "Equipment Report",
  "report_type": "Script Report",
- "roles": []
+ "roles": [
+  {
+   "role": "eusectra basic User"
+  }
+ ]
 }
