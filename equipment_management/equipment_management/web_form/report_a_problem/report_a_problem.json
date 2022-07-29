@@ -11,7 +11,7 @@
  "apply_document_permissions": 0,
  "button_label": "Save",
  "client_script": "$.getScript(\"assets/equipment_management/js/web_form/report_a_problem.js\", function() {\n})",
- "creation": "2022-04-07 14:30:51.166761",
+ "creation": "2022-07-29 12:11:36.354411",
  "currency": "EUR",
  "doc_type": "Problem Report",
  "docstatus": 0,
@@ -21,7 +21,7 @@
  "is_standard": 1,
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2022-07-29 11:53:59.813864",
+ "modified": "2022-07-29 12:35:54.297647",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "report-a-problem",
@@ -93,7 +93,7 @@
    "show_in_filter": 0
   },
   {
-   "allow_read_on_all_link_options": 0,
+   "allow_read_on_all_link_options": 1,
    "description": "Link field to the equipment that is not working",
    "fieldname": "equipment",
    "fieldtype": "Link",
