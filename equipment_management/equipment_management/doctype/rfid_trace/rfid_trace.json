@@ -24,7 +24,8 @@
    "fieldtype": "Link",
    "in_standard_filter": 1,
    "label": "Equipment",
-   "options": "Equipment"
+   "options": "Equipment",
+   "set_only_once": 1
   },
   {
    "fieldname": "rfid_tag",
@@ -90,7 +91,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-20 14:27:14.102512",
+ "modified": "2022-08-03 10:54:19.187660",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "RFID Trace",

@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{equipment} {type} on {date}",
+ "autoname": "format:{equipment} {type} on {posting_date}",
  "creation": "2022-06-07 18:45:05.320341",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -30,7 +30,8 @@
    "in_list_view": 1,
    "label": "Equipment",
    "options": "Equipment",
-   "reqd": 1
+   "reqd": 1,
+   "set_only_once": 1
   },
   {
    "default": "Today",
@@ -124,7 +125,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-29 12:17:41.387050",
+ "modified": "2022-08-03 10:53:54.203741",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Manual Equipment Movement",

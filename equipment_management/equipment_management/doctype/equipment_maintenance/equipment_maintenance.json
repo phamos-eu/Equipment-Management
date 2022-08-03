@@ -48,7 +48,8 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Equipment",
-   "options": "Equipment"
+   "options": "Equipment",
+   "set_only_once": 1
   },
   {
    "fieldname": "responsible_officer",
@@ -113,7 +114,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-08-03 08:19:36.070076",
+ "modified": "2022-08-03 10:53:21.214483",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment Maintenance",
