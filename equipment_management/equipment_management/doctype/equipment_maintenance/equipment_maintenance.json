@@ -31,8 +31,7 @@
   "column_break_6",
   "comment",
   "section_break_8",
-  "maintenance_tasks",
-  "equipment_maintenance_plan"
+  "maintenance_tasks"
  ],
  "fields": [
   {
@@ -98,12 +97,6 @@
    "options": "Maintenance Tasks"
   },
   {
-   "fieldname": "equipment_maintenance_plan",
-   "fieldtype": "Link",
-   "label": "Equipment Maintenance Plan",
-   "options": "Equipment Maintenance Plan"
-  },
-  {
    "fieldname": "posting_time",
    "fieldtype": "Time",
    "label": "Posting Time",
@@ -119,7 +112,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-28 12:50:30.155950",
+ "modified": "2022-08-03 06:53:04.508952",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment Maintenance",
