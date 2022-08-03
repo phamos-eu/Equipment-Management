@@ -46,6 +46,7 @@
    "fetch_from": "equipment_maintenance_plan.equipment",
    "fieldname": "equipment",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Equipment",
    "options": "Equipment"
   },
@@ -112,7 +113,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-08-03 06:53:04.508952",
+ "modified": "2022-08-03 08:19:36.070076",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment Maintenance",
