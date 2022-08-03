@@ -18,7 +18,7 @@
  ],
  "idx": 0,
  "is_standard": "Yes",
- "modified": "2022-08-03 06:40:42.797560",
+ "modified": "2022-08-03 07:38:32.465467",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment Ledger",
@@ -31,6 +31,9 @@
  "roles": [
   {
    "role": "eusectra basic User"
+  },
+  {
+   "role": "Web"
   }
  ]
 }
