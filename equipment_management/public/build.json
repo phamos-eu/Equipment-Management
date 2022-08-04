@@ -1,5 +1,8 @@
 {
 	"js/equipment_management.min.js": [
 		"public/js/equipment_management.js"	
+	],
+	"css/equipment_management.min.css": [
+		"public/css/equipment_management.css"
 	]
 }
