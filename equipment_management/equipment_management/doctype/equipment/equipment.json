@@ -13,7 +13,8 @@
   "status",
   "equipment_details_section",
   "inv_nr",
-  "location",
+  "last_location",
+  "storage_location",
   "serial_number",
   "column_break_8",
   "ec_inventorynumber",
@@ -74,14 +75,6 @@
    "in_preview": 1,
    "label": "Inv Nr",
    "unique": 1
-  },
-  {
-   "description": "e. storage location",
-   "fieldname": "location",
-   "fieldtype": "Link",
-   "in_preview": 1,
-   "label": "Location",
-   "options": "Location"
   },
   {
    "fieldname": "serial_number",
@@ -215,6 +208,20 @@
    "fieldname": "warranty_information",
    "fieldtype": "Attach",
    "label": "Warranty Information"
+  },
+  {
+   "fieldname": "last_location",
+   "fieldtype": "Link",
+   "in_preview": 1,
+   "label": "Last Location",
+   "options": "Location"
+  },
+  {
+   "description": "Item should be kept when it is not in use",
+   "fieldname": "storage_location",
+   "fieldtype": "Link",
+   "label": "Storage Location",
+   "options": "Location"
   }
  ],
  "image_field": "image",
@@ -237,7 +244,7 @@
    "link_fieldname": "equipment"
   }
  ],
- "modified": "2022-08-01 08:29:43.503524",
+ "modified": "2022-09-20 13:39:02.386034",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment",

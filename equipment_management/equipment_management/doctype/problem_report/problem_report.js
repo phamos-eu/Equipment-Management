@@ -21,19 +21,19 @@ frappe.ui.form.on('Problem Report', {
 		// Added Manual Equipment Movement Button
 		cur_frm.add_custom_button(__('Scrap'), function () {
 			frappe.set_route('manual-equipment-movement','new-manual-equipment-movement',
-					{equipment: frm.doc.name, type: 'Scrap'});
+					{equipment: frm.doc.equipment, type: 'Scrap'});
 			
 		},__('Manual Equipment Movement'));
 
 		cur_frm.add_custom_button(__('Loan'), function () {
 			frappe.set_route('manual-equipment-movement','new-manual-equipment-movement',
-					{equipment: frm.doc.name, type: 'Loan'});
+					{equipment: frm.doc.equipment, type: 'Loan'});
 			
 		},__('Manual Equipment Movement'));
 
 		cur_frm.add_custom_button(__('Send to Repair'), function () {
 			frappe.set_route('manual-equipment-movement','new-manual-equipment-movement',
-					{equipment: frm.doc.name, type: 'Repair'});
+					{equipment: frm.doc.equipment, type: 'Repair'});
 			
 		},__('Manual Equipment Movement'));
 	},
