@@ -11,8 +11,10 @@
   "edit_posting_time",
   "status",
   "equipment",
+  "equipment_name",
   "equipment_status",
   "column_break_5",
+  "problem_title",
   "status_comment",
   "section_break_7",
   "problem_troubleshooting"
@@ -40,7 +42,7 @@
    "description": "Link field to the equipment that is not working",
    "fieldname": "equipment",
    "fieldtype": "Link",
-   "label": "Equipment",
+   "label": "Equipment Inventory Number",
    "options": "Equipment",
    "set_only_once": 1
   },
@@ -84,11 +86,24 @@
    "fieldtype": "Check",
    "hidden": 1,
    "label": "Edit Posting Date and Time"
+  },
+  {
+   "fetch_from": "equipment.item_code",
+   "fieldname": "equipment_name",
+   "fieldtype": "Data",
+   "label": "Name of Equipment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "problem_title",
+   "fieldtype": "Data",
+   "label": "Problem Title",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-09-20 07:40:17.346053",
+ "modified": "2022-09-20 08:10:37.305396",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Problem Report",
@@ -120,5 +135,5 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "title_field": "status_comment"
+ "title_field": "problem_title"
 }
