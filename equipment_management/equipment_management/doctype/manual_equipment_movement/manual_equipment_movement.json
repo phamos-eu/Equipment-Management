@@ -11,6 +11,7 @@
   "posting_date",
   "posting_time",
   "edit_posting_time",
+  "location",
   "type",
   "column_break_4",
   "comment",
@@ -85,7 +86,7 @@
   {
    "fieldname": "some_scrap_information",
    "fieldtype": "Data",
-   "label": "Some Scrap Information"
+   "label": "Information"
   },
   {
    "depends_on": "eval:doc.type == 'Loan'",
@@ -96,7 +97,7 @@
   {
    "fieldname": "some_loan_information",
    "fieldtype": "Data",
-   "label": "Some Loan Information"
+   "label": "Information"
   },
   {
    "depends_on": "eval:doc.type == 'Repair'",
@@ -107,7 +108,7 @@
   {
    "fieldname": "some_repair_information",
    "fieldtype": "Data",
-   "label": "Some Repair Information"
+   "label": "Information"
   },
   {
    "fieldname": "posting_time",
@@ -121,11 +122,17 @@
    "fieldtype": "Check",
    "hidden": 1,
    "label": "Edit Posting Date and Time"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Location"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-08-03 10:53:54.203741",
+ "modified": "2022-09-20 09:05:24.372114",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Manual Equipment Movement",

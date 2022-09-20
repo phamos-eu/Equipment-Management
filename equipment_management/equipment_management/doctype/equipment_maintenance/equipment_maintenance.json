@@ -11,7 +11,9 @@
   "posting_time",
   "edit_posting_time",
   "equipment",
+  "equipment_name",
   "responsible_officer",
+  "location",
   "status",
   "due_date",
   "equipment_status",
@@ -35,7 +37,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Equipment",
+   "label": "Equipment Inventory Number",
    "options": "Equipment",
    "set_only_once": 1
   },
@@ -98,11 +100,24 @@
    "fieldtype": "Check",
    "hidden": 1,
    "label": "Edit Posting Date and Time"
+  },
+  {
+   "fetch_from": "equipment.item_code",
+   "fieldname": "equipment_name",
+   "fieldtype": "Data",
+   "label": "Name of Equipment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Location"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-09-20 07:41:51.762940",
+ "modified": "2022-09-20 08:36:14.844032",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment Maintenance",
@@ -122,5 +137,6 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "title_field": "equipment_name"
 }
