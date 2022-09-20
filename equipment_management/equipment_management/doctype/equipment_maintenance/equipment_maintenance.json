@@ -1,18 +1,5 @@
 {
- "actions": [
-  {
-   "action": "/",
-   "action_type": "Route",
-   "group": "Action",
-   "label": "Send to Repair"
-  },
-  {
-   "action": "/",
-   "action_type": "Route",
-   "group": "Action",
-   "label": "Scrap"
-  }
- ],
+ "actions": [],
  "allow_rename": 1,
  "autoname": "format:Maint-on-{posting_date}",
  "creation": "2022-03-24 11:37:13.714402",
@@ -115,7 +102,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-08-03 11:01:00.630024",
+ "modified": "2022-09-20 07:41:51.762940",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment Maintenance",

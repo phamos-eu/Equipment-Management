@@ -18,6 +18,24 @@ frappe.ui.form.on('Problem Report', {
 			cur_frm.set_value('posting_date',cur_frm.doc.creation.split(' ')[0])
 			cur_frm.set_value('posting_time',cur_frm.doc.creation.split(' ')[1])
 		}
+		// Added Manual Equipment Movement Button
+		cur_frm.add_custom_button(__('Scrap'), function () {
+			frappe.set_route('manual-equipment-movement','new-manual-equipment-movement',
+					{equipment: frm.doc.name, type: 'Scrap'});
+			
+		},__('Manual Equipment Movement'));
+
+		cur_frm.add_custom_button(__('Loan'), function () {
+			frappe.set_route('manual-equipment-movement','new-manual-equipment-movement',
+					{equipment: frm.doc.name, type: 'Loan'});
+			
+		},__('Manual Equipment Movement'));
+
+		cur_frm.add_custom_button(__('Send to Repair'), function () {
+			frappe.set_route('manual-equipment-movement','new-manual-equipment-movement',
+					{equipment: frm.doc.name, type: 'Repair'});
+			
+		},__('Manual Equipment Movement'));
 	},
 	edit_posting_time: function(frm) {
 		if (frm.is_new()) {
