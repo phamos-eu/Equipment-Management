@@ -11,7 +11,7 @@ frappe.ui.form.on('Problem Report', {
 			frm.set_df_property('edit_posting_time','hidden',0)
 		}
 		cur_frm.add_custom_button(__('View Log Book'), function () {
-			frappe.set_route('query-report', 'Equipment Ledger',
+			frappe.set_route('query-report', 'Equipment Log Book',
 					{equipment: frm.doc.equipment});
 		});
 		if (frm.doc.posting_time===undefined) {

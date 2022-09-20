@@ -34,7 +34,7 @@ frappe.ui.form.on('Equipment', {
 			$('.indicator-pill.whitespace-nowrap').addClass('red')
 		}
 		cur_frm.add_custom_button(__('View Log Book'), function () {
-			frappe.set_route('query-report', 'Equipment Ledger',
+			frappe.set_route('query-report', 'Equipment Log Book',
 					{equipment: frm.doc.name});
 		});
 
