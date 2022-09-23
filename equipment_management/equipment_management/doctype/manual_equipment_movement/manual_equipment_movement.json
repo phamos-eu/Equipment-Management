@@ -14,15 +14,9 @@
   "location",
   "type",
   "column_break_4",
-  "comment",
+  "information",
   "maintenance_section",
-  "maintenance_tasks",
-  "scrap_section",
-  "some_scrap_information",
-  "loan_section",
-  "some_loan_information",
-  "repair_section",
-  "some_repair_information"
+  "maintenance_tasks"
  ],
  "fields": [
   {
@@ -57,15 +51,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "allow_in_quick_entry": 1,
-   "depends_on": "eval:doc.type != 0",
-   "fieldname": "comment",
-   "fieldtype": "Small Text",
-   "label": "Comment",
-   "mandatory_depends_on": "eval:doc.type != 0",
-   "options": "{{type}}"
-  },
-  {
    "depends_on": "eval:doc.type == 'Maintenance'",
    "fieldname": "maintenance_section",
    "fieldtype": "Section Break",
@@ -76,39 +61,6 @@
    "fieldtype": "Table",
    "label": "Maintenance Tasks",
    "options": "Maintenance Tasks"
-  },
-  {
-   "depends_on": "eval:doc.type == 'Scrap'",
-   "fieldname": "scrap_section",
-   "fieldtype": "Section Break",
-   "label": "Scrap"
-  },
-  {
-   "fieldname": "some_scrap_information",
-   "fieldtype": "Data",
-   "label": "Information"
-  },
-  {
-   "depends_on": "eval:doc.type == 'Loan'",
-   "fieldname": "loan_section",
-   "fieldtype": "Section Break",
-   "label": "Loan"
-  },
-  {
-   "fieldname": "some_loan_information",
-   "fieldtype": "Data",
-   "label": "Information"
-  },
-  {
-   "depends_on": "eval:doc.type == 'Repair'",
-   "fieldname": "repair_section",
-   "fieldtype": "Section Break",
-   "label": "Repair"
-  },
-  {
-   "fieldname": "some_repair_information",
-   "fieldtype": "Data",
-   "label": "Information"
   },
   {
    "fieldname": "posting_time",
@@ -128,11 +80,20 @@
    "fieldtype": "Link",
    "label": "Location",
    "options": "Location"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "depends_on": "eval:doc.type != 0",
+   "fieldname": "information",
+   "fieldtype": "Small Text",
+   "label": "Informationn",
+   "mandatory_depends_on": "eval:doc.type != 0",
+   "options": "{{type}}"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-09-20 09:05:24.372114",
+ "modified": "2022-09-23 08:24:06.647170",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Manual Equipment Movement",
