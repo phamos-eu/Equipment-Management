@@ -20,7 +20,7 @@
   "meta_description": null,
   "meta_image": null,
   "meta_title": null,
-  "modified": "2022-07-29 14:37:27.798032",
+  "modified": "2022-09-30 09:26:06.883778",
   "name": "basic-user",
   "page_blocks": [
    {
@@ -34,7 +34,7 @@
     "parentfield": "page_blocks",
     "parenttype": "Web Page",
     "web_template": "Section with Cards",
-    "web_template_values": "{\"card_size\":\"Small\",\"card_1_title\":\"List of Equipment\",\"card_1_content\":\"<img src='/files/list_of_equipment.png' style='max-height: 100px;'>\",\"card_2_title\":\"Report a Problem\",\"card_2_content\":\"<img src='/files/report_a_problem.png' style='max-height: 100px;'>\",\"card_2_url\":\"report-a-problem\",\"card_3_title\":\"Scan Equipment\",\"card_3_content\":\"<img src='/files/Scan_equipment.png' style='max-height: 100px;'>\",\"card_4_title\":\"Log out Equipment\",\"card_4_content\":\"<img src='/files/Log_out_equipment.png' style='max-height: 100px;'>\",\"card_4_url\":\"log-out-equipment\",\"card_5_title\":\"List of Maintenance\",\"card_5_content\":\"<img src='/files/list_of_maintenance.png' style='max-height: 100px;'>\",\"card_5_url\":\"equipment-maintenance\",\"card_6_title\":\"Search Equipment\",\"card_6_content\":\"<img src='/files/search_equipment.png' style='max-height: 100px;'>\",\"card_7_title\":\"Advanced User\",\"card_7_url\":\"/advanced-user\"}"
+    "web_template_values": "{\"card_size\":\"Small\",\"card_1_title\":\"List of Equipment\",\"card_1_content\":\"<img src='/files/list_of_equipment.png' style='max-height: 100px;'>\",\"card_1_url\":\"/app/query-report/Equipment%20Report\",\"card_2_title\":\"Report a Problem\",\"card_2_content\":\"<img src='/files/report_a_problem.png' style='max-height: 100px;'>\",\"card_2_url\":\"/app/problem-report/new-problem-report-1\",\"card_3_title\":\"Scan Equipment\",\"card_3_content\":\"<img src='/files/Scan_equipment.png' style='max-height: 100px;'>\",\"card_4_title\":\"Log out Equipment\",\"card_4_content\":\"<img src='/files/Log_out_equipment.png' style='max-height: 100px;'>\",\"card_4_url\":\"/app/log-out-equipment/view/report\",\"card_5_title\":\"List of Maintenance\",\"card_5_content\":\"<img src='/files/list_of_maintenance.png' style='max-height: 100px;'>\",\"card_5_url\":\"/app/equipment-maintenance/view/report\",\"card_6_title\":\"Search Equipment\",\"card_6_content\":\"<img src='/files/search_equipment.png' style='max-height: 100px;'>\",\"card_7_title\":\"Advanced User\",\"card_7_url\":\"/advanced-user\",\"card_8_title\":\"List of Problems\",\"card_8_url\":\"/app/problem-report/view/report\"}"
    }
   ],
   "parent": null,
