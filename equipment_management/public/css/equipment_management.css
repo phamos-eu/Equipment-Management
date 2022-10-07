@@ -1,3 +1,6 @@
 #navbar-breadcrumbs li:nth-child(1) a:nth-child(1){
     display: none !important;
   }
+  /* #navbar-breadcrumbs li:nth-child(2) a:nth-child(1){
+    display: none !important;
+  } */
