@@ -39,14 +39,16 @@ def get_columns():
 		},
 		{
 			"label": _("Item Code"),
-			"fieldtype": "Data",
+			"fieldtype": "Link",
 			"fieldname": "item_code",
+			"options": "Item",
 			"width": 150
 		},
 		{
 			"label": _("Location"),
-			"fieldtype": "Data",
+			"fieldtype": "Link",
 			"fieldname": "location",
+			"options": "Location",
 			"width": 150
 		},
 		{
@@ -56,16 +58,16 @@ def get_columns():
 			"width": 150
 		},
 		{
-			"label": "Status",
-			"fieldname": "Data",
-			"fieldtype": "status",
-			"width": 150
-		},
-		{
 			"label": _("Reference"),
 			"fieldtype": "Dynamic Link",
 			"fieldname": "reference",
 			"options": "doctype",
+			"width": 150
+		},
+		{
+			"label": "Status",
+			"fieldname": "Data",
+			"fieldtype": "status",
 			"width": 150
 		}
 	]
@@ -80,8 +82,8 @@ def get_data(filters):
     eq.item_code,
     eq.location,
     doctype.name,
-    eqmaint.status,
-    eqmaint.name
+    eqmaint.name,
+    eqmaint.status
 
 from 
     `tabEquipment` eq,`tabEquipment Maintenance` eqmaint,`tabDocType` doctype
@@ -98,8 +100,8 @@ select
     eq.item_code,
     eq.location,
     doctype.name,
-    eqprob.status,
-    eqprob.name
+    eqprob.name,
+    eqprob.status
 
 from
     `tabEquipment` eq,`tabProblem Report` eqprob,`tabDocType` doctype
@@ -117,8 +119,8 @@ select
     eq.item_code,
     eq.location,
     doctype.name,
-    eqlog.status,
-    eqlog.name
+    eqlog.name,
+    eqlog.status
     
 from
     `tabEquipment` eq,`tabEquipment Log` eqlog,`tabDocType` doctype
@@ -136,8 +138,8 @@ select
     eq.item_code,
     eq.location,
     doctype.name,
-    null,
-    rf.name
+    rf.name,
+    null
     
 from
     `tabEquipment` eq,`tabRFID Trace` rf,`tabDocType` doctype
@@ -155,8 +157,8 @@ select
     eq.item_code,
     eq.location,
     doctype.name,
-    mem.type,
-    mem.name
+    mem.name,
+    mem.type
     
 from
     `tabEquipment` eq,`tabManual Equipment Movement` mem,`tabDocType` doctype

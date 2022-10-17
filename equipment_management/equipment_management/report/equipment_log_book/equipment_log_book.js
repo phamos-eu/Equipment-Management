@@ -20,6 +20,24 @@ frappe.query_reports["Equipment Log Book"] = {
 	},
 
 	formatter: function (value, cell, columnDef, row) {
+        if (columnDef.fieldname === "item_code") {
+            return `<a href="/app/item/${value}" data-doctype="Item" data-name="${value}">
+                ${value}</a>`
+
+        }
+        if (columnDef.fieldname === "location") {
+            return `<a href="/app/location/${value}" data-doctype="Item" data-name="${value}">
+                ${value}</a>`
+
+        }
+        if (columnDef.fieldname === "reference") {
+            return `<a href="/app/${row.doctype.toLowerCase().replace(' ','-')}/${value}" data-doctype="${row.doctype}" data-name="${value}">
+                ${value}</a>`
+
+        }
+        if (columnDef.fieldname === "doctype") {
+            return `<a href="/app/${value.toLowerCase().replace(' ','-')}"> ${value}</a>`
+        }
 		if (columnDef.fieldname === "equipment_status") {
 			
 			if (row.indicator===1) {
