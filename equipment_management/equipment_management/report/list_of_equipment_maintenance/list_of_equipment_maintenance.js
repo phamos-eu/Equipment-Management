@@ -2,31 +2,25 @@
 // For license information, please see license.txt
 /* eslint-disable */
 
-frappe.query_reports["List of Equipment"] = {
+frappe.query_reports["List of Equipment Maintenance"] = {
 	"filters": [
 		{
 			label: "Name",
 			fieldname: "name",
 			fieldtype: "Link",
-			options: "Equipment",
+			options: "Equipment Maintenance",
 		},
 		{
 			label: "Status",
 			fieldname: "status",
 			fieldtype: "Select",
-			options: "\nWorking\nNot Working",
+			options: "\nPending\nRepair Needed\nCompleted",
 		},
 		{
 			label: "Item Code",
 			fieldname: "item_code",
 			fieldtype: "Link",
 			options: "Item",
-		},
-		{
-			label: "Category",
-			fieldname: "category",
-			fieldtype: "Link",
-			options: "Item Group",
 		},
 	],
 	onload: function(report) {
@@ -36,34 +30,29 @@ frappe.query_reports["List of Equipment"] = {
 	formatter: function (value, cell, columnDef, row) {
 		
 		if (columnDef.fieldname === "name")
-			value  = `<a href='/app/equipment/${value}' target=_blank> ${value} </a>`;
+			value  = `<a href='/app/equipment-maintenance/${value}' target=_blank> ${value} </a>`;
 
 		if (columnDef.fieldname === "status") {
-			if (row.indicator===1) {
+			if (value==="Pending") {
                 return `<span class="ellipsis" title="Status: ${value}">
-                <span class="filterable indicator-pill green ellipsis" data-filter="status,=,${value}">
+                <span class="filterable indicator-pill red ellipsis" data-filter="status,=,${value}">
                     <span class="ellipsis"> ${value} </span>
                 </span>
             </span>`
             }
-            else if (row.indicator===2) {
+            else if (value==="Repair Needed") {
                 return `<span class="ellipsis" title="Status: ${value}">
                 <span class="filterable indicator-pill orange ellipsis" data-filter="status,=,${value}">
                     <span class="ellipsis"> ${value} </span>
                 </span>
             </span>`
             }
-            else if (row.indicator===3) {
+            else if (value==="Completed") {
                 return `<span class="ellipsis" title="Status: ${value}">
-                <span class="filterable indicator-pill red ellipsis" data-filter="status,=,${value}">
+                <span class="filterable indicator-pill green ellipsis" data-filter="status,=,${value}">
                     <span class="ellipsis"> ${value} </span>
                 </span>
             </span>`
-            } else {
-                return `<span class="ellipsis" title="Status: ${value}">
-                <span class="filterable indicator-pill gray ellipsis" data-filter="status,=,${value}">
-                    <span class="ellipsis"> ${value} </span>
-                </span>`
             }
 		}
 		return value

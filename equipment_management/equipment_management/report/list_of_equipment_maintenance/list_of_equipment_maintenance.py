@@ -13,28 +13,17 @@ def execute(filters=None):
 def get_columns(filters):
 	columns = [
 		{
-			"label": _("ID"),
+			"label": _("Equipment Inventory Number"),
 			"fieldtype": "Link",
-			"fieldname": "name",
+			"fieldname": "equipment",
 			"options": "Equipment",
 			"width": 150
 		},
 		{
-			"label": _("Item Code"),
-			"fieldtype": "Data",
-			"fieldname": "item_code",
-			"width": 150
-		},
-		{
-			"label": _("Location"),
-			"fieldtype": "Data",
-			"fieldname": "storage_location",
-			"width": 150
-		},
-		{
-			"label": _("Category"),
-			"fieldtype": "Data",
-			"fieldname": "category",
+			"label": _("ID"),
+			"fieldtype": "Link",
+			"fieldname": "name",
+			"options": "Equipment Maintenance",
 			"width": 150
 		},
 		{
@@ -44,16 +33,24 @@ def get_columns(filters):
 			"width": "150"
 		},
 		{
-			"label": _("Serial Number"),
-			"fieldtype": "Data",
-			"fieldname": "serial_number",
+			"label": _("Due Date"),
+			"fieldtype": "Date",
+			"fieldname": "due_date",
 			"width": "150"
 		},
 		{
-			"label": "Indicator",
-			"fieldname": "indicator",
-			"fieldtype": "data",
-			"hidden": 1,	
+			"label": _("Last Location"),
+			"fieldtype": "Link",
+			"fieldname": "location",
+			"options": "Location",
+			"width": "150"
+		},
+		{
+			"label": _("Responsible Officer"),
+			"fieldtype": "responsible_officer",
+			"fieldname": "due_date",
+			"options": "User",
+			"width": "150"
 		}
 	]
 	return columns
@@ -71,14 +68,11 @@ def get_conditions(filters):
 	if filters.item_code:
 		conditions["item_code"] = filters.item_code
 
-	if filters.category:
-		conditions["category"] = filters.category
-
 	return conditions
 
 def get_data(filters):
 	
 	conditions = get_conditions(filters)
-	data = frappe.db.get_all("Equipment", fields=['name','item_code','storage_location','category','status','serial_number','indicator'], filters=conditions, order_by='name')
+	data = frappe.db.get_all("Equipment Maintenance", fields=['equipment','name','status','due_date','location','responsible_officer'], filters=conditions, order_by='due_date')
 
 	return data
