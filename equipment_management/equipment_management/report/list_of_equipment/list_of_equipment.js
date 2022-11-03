@@ -2,7 +2,11 @@
 // For license information, please see license.txt
 /* eslint-disable */
 
-frappe.query_reports["Equipment Report"] = {
+// Copyright (c) 2022, Deepak Kumar and contributors
+// For license information, please see license.txt
+/* eslint-disable */
+
+frappe.query_reports["List of Equipment"] = {
 	"filters": [
 		{
 			label: "Name",
@@ -29,6 +33,10 @@ frappe.query_reports["Equipment Report"] = {
 			options: "Item Group",
 		},
 	],
+	onload: function(report) {
+		frappe.views.QueryReport.prototype.add_card_button_to_toolbar = () => {}
+		frappe.views.QueryReport.prototype.add_chart_buttons_to_toolbar = () => {}
+	},
 	formatter: function (value, cell, columnDef, row) {
 		
 		if (columnDef.fieldname === "name")
