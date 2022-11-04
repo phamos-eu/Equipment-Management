@@ -47,8 +47,8 @@ def get_columns(filters):
 		},
 		{
 			"label": _("Responsible Officer"),
-			"fieldtype": "responsible_officer",
-			"fieldname": "due_date",
+			"fieldtype": "Link",
+			"fieldname": "responsible_officer",
 			"options": "User",
 			"width": "150"
 		}
