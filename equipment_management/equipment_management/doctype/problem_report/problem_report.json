@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format: {equipment_name} {problem_title}",
  "creation": "2022-05-05 17:12:02.923665",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -110,7 +111,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-11-08 06:11:47.497213",
+ "modified": "2022-11-08 06:20:02.047325",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Problem Report",
