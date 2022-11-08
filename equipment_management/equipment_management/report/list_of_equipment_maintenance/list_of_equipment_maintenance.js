@@ -15,13 +15,7 @@ frappe.query_reports["List of Equipment Maintenance"] = {
 			fieldname: "status",
 			fieldtype: "Select",
 			options: "\nPending\nRepair Needed\nCompleted",
-		},
-		{
-			label: "Item Code",
-			fieldname: "item_code",
-			fieldtype: "Link",
-			options: "Item",
-		},
+		}
 	],
 	onload: function(report) {
 		frappe.views.QueryReport.prototype.add_card_button_to_toolbar = () => {}

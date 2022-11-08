@@ -65,9 +65,6 @@ def get_conditions(filters):
 	if filters.status:
 		conditions["status"] = filters.status
 
-	if filters.item_code:
-		conditions["item_code"] = filters.item_code
-
 	return conditions
 
 def get_data(filters):
