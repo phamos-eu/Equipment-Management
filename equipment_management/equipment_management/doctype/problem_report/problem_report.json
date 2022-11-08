@@ -13,6 +13,7 @@
   "equipment",
   "equipment_name",
   "equipment_status",
+  "last_location",
   "column_break_5",
   "problem_title",
   "status_comment",
@@ -99,11 +100,17 @@
    "fieldtype": "Data",
    "label": "Problem Title",
    "reqd": 1
+  },
+  {
+   "fieldname": "last_location",
+   "fieldtype": "Link",
+   "label": "Last Location",
+   "options": "Location"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-09-20 08:10:37.305396",
+ "modified": "2022-11-08 06:11:47.497213",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Problem Report",
