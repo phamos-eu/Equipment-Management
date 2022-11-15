@@ -124,7 +124,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-11-08 06:22:10.159199",
+ "modified": "2022-11-15 06:14:08.586096",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment Maintenance",
@@ -144,6 +144,5 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC",
- "title_field": "equipment_name"
+ "sort_order": "DESC"
 }

@@ -20,7 +20,7 @@ def get_columns(filters):
 			"width": 150
 		},
 		{
-			"label": _("ID"),
+			"label": _("Equipment Name"),
 			"fieldtype": "Link",
 			"fieldname": "name",
 			"options": "Problem Report",

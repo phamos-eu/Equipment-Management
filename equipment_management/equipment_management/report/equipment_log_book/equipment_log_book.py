@@ -15,10 +15,10 @@ def get_columns():
 			"label": _("Posting Date"),
 			"fieldtype": "Data",
 			"fieldname": "posting_date",
-			"width": 150
+			"width": 170
 		},
 		{
-			"label": _("Name"),
+			"label": _("Equipment Name"),
 			"fieldtype": "Link",
 			"fieldname": "equipment",
 			"options": "Equipment",
@@ -35,7 +35,7 @@ def get_columns():
 			"label": _("Equipment Status"),
 			"fieldtype": "Data",
 			"fieldname": "equipment_status",
-			"width": 150
+			"width": 130
 		},
 		{
 			"label": _("Item Code"),
@@ -52,7 +52,7 @@ def get_columns():
 			"width": 150
 		},
 		{
-			"label": "doctype",
+			"label": "Reference Type",
 			"fieldname": "doctype",
 			"fieldtype": "Data",
 			"width": 150
