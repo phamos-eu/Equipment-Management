@@ -35,11 +35,11 @@ frappe.query_reports["Equipment Log Book"] = {
                 ${value}</a>`
 
         }
-        if (columnDef.fieldname === "reference") {
-            return `<a href="/app/${row.doctype.toLowerCase().replace(' ','-')}/${value}" data-doctype="${row.doctype}" data-name="${value}">
-                ${value}</a>`
+        // if (columnDef.fieldname === "reference") {
+        //     return `<a href="/app/${row.doctype.toLowerCase().replace(' ','-')}/${value}" data-doctype="${row.doctype}" data-name="${value}">
+        //         ${value}</a>`
 
-        }
+        // }
         if (columnDef.fieldname === "doctype") {
             return `<a href="/app/${value.toLowerCase().replace(' ','-')}"> ${value}</a>`
         }

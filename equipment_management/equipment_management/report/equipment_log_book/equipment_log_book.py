@@ -35,7 +35,7 @@ def get_columns():
 			"label": _("Equipment Status"),
 			"fieldtype": "Data",
 			"fieldname": "equipment_status",
-			"width": 130
+			"width": 150
 		},
 		{
 			"label": _("Item Code"),
