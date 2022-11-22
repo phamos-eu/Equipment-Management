@@ -19,6 +19,7 @@
   "column_break_8",
   "ec_inventorynumber",
   "responsible_officer",
+  "location_status",
   "section_break_7",
   "item_code",
   "item_desciption",
@@ -222,6 +223,12 @@
    "fieldtype": "Link",
    "label": "Storage Location",
    "options": "Location"
+  },
+  {
+   "fieldname": "location_status",
+   "fieldtype": "Data",
+   "label": "Location Status",
+   "read_only": 1
   }
  ],
  "image_field": "image",
@@ -244,7 +251,7 @@
    "link_fieldname": "equipment"
   }
  ],
- "modified": "2022-09-20 13:39:02.386034",
+ "modified": "2022-11-22 10:38:51.451967",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment",
@@ -263,6 +270,7 @@
    "write": 1
   }
  ],
+ "quick_entry": 1,
  "show_preview_popup": 1,
  "sort_field": "modified",
  "sort_order": "DESC",

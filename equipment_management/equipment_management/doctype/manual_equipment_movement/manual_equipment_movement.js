@@ -20,6 +20,15 @@ frappe.ui.form.on('Manual Equipment Movement', {
 		if (!frappe.user.has_role('System Manager') && frappe.user.has_role('eusectra basic User')) {
 			frm.set_df_property('type', 'read_only',1)
 		}
+		
+		if (frm.doc.type==="Loan" || frm.doc.type==="Repair") {
+			cur_frm.add_custom_button(__('Return'), function () {
+				frm.set_value("status","Returned")
+				frm.save()
+			});
+		}
+		if (frm.doc.status==="Returned")
+			$('[data-label="Return"]').hide()
 	},
 	edit_posting_time: function(frm) {
 		if (frm.is_new()) {

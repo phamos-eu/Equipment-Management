@@ -46,6 +46,12 @@ def get_columns(filters):
 			"width": "150"
 		},
 		{
+			"label": _("Location Status"),
+			"fieldtype": "Data",
+			"fieldname": "location_status",
+			"width": "150"
+		},
+		{
 			"label": _("Responsible Officer"),
 			"fieldtype": "Link",
 			"fieldname": "responsible_officer",
@@ -56,20 +62,21 @@ def get_columns(filters):
 	return columns
 
 def get_conditions(filters):
-	conditions = {}
+	conditions = ''
 
 	if filters.name:
-		conditions["name"] = filters.name
+		conditions += f'and em.name="{filters.name}"'
 		return conditions
 
 	if filters.status:
-		conditions["status"] = filters.status
+		conditions += f'and em.status="{filters.status}"'
 
 	return conditions
 
 def get_data(filters):
 	
 	conditions = get_conditions(filters)
-	data = frappe.db.get_all("Equipment Maintenance", fields=['equipment','name','status','due_date','location','responsible_officer'], filters=conditions, order_by='due_date')
-
+	query = f'select em.equipment, em.name, em.status, em.due_date, em.location, eq.location_status, em.responsible_officer from `tabEquipment Maintenance` em inner join `tabEquipment` eq on em.equipment=eq.name where em.equipment=em.equipment {conditions} order by due_date'
+	# data = frappe.db.get_all("Equipment Maintenance", fields=['equipment','name','status','due_date','location','responsible_officer'], filters=conditions, order_by='due_date')
+	data = frappe.db.sql(query)
 	return data

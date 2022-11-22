@@ -32,6 +32,12 @@ def get_columns(filters):
 			"width": 150
 		},
 		{
+			"label": _("Location Status"),
+			"fieldtype": "Data",
+			"fieldname": "location_status",
+			"width": "150"
+		},
+		{
 			"label": _("Category"),
 			"fieldtype": "Data",
 			"fieldname": "category",
@@ -79,6 +85,6 @@ def get_conditions(filters):
 def get_data(filters):
 	
 	conditions = get_conditions(filters)
-	data = frappe.db.get_all("Equipment", fields=['name','item_code','storage_location','category','status','serial_number','indicator'], filters=conditions, order_by='name')
+	data = frappe.db.get_all("Equipment", fields=['name','item_code','storage_location','location_status','category','status','serial_number','indicator'], filters=conditions, order_by='name')
 
 	return data

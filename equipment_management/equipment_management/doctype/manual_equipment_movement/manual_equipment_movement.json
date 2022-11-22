@@ -12,6 +12,7 @@
   "posting_time",
   "edit_posting_time",
   "location",
+  "status",
   "type",
   "column_break_4",
   "information",
@@ -89,11 +90,18 @@
    "label": "Information",
    "mandatory_depends_on": "eval:doc.type != 0",
    "options": "{{type}}"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nReturned",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-09-27 10:59:20.960928",
+ "modified": "2022-11-21 07:27:13.806151",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Manual Equipment Movement",
