@@ -225,6 +225,7 @@
    "options": "Location"
   },
   {
+   "default": "Available",
    "fieldname": "location_status",
    "fieldtype": "Data",
    "label": "Location Status",
@@ -251,7 +252,7 @@
    "link_fieldname": "equipment"
   }
  ],
- "modified": "2022-11-22 10:38:51.451967",
+ "modified": "2022-11-24 12:25:55.887131",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment",
