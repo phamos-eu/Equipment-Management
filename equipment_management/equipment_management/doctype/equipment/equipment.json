@@ -56,6 +56,8 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "in_preview": 1,
+   "hidden": 1,
+   "default": "Working",
    "in_standard_filter": 1,
    "label": "Status",
    "options": "\nWorking\nNot Working"
@@ -232,7 +234,7 @@
    "link_fieldname": "equipment"
   }
  ],
- "modified": "2022-12-04 12:25:55.887131",
+ "modified": "2022-12-04 12:26:55.887131",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment",
