@@ -44,6 +44,11 @@
    "fieldtype": "Data",
    "label": "Naming Series"
   },
+   {
+   "fieldname": "equipment_name",
+   "fieldtype": "Data",
+   "label": "Equipment Name"
+  },
   {
    "fieldname": "image",
    "fieldtype": "Attach Image",
@@ -234,7 +239,7 @@
    "link_fieldname": "equipment"
   }
  ],
- "modified": "2022-12-04 12:26:55.887131",
+ "modified": "2022-12-04 12:27:55.887131",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment",
