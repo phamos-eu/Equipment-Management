@@ -21,8 +21,6 @@
   "responsible_officer",
   "location_status",
   "section_break_7",
-  "item_code",
-  "item_desciption",
   "column_break_10",
   "category",
   "software",
@@ -47,8 +45,6 @@
    "label": "Naming Series"
   },
   {
-   "fetch_from": "item_code.image",
-   "fetch_if_empty": 1,
    "fieldname": "image",
    "fieldtype": "Attach Image",
    "hidden": 1,
@@ -70,7 +66,6 @@
    "label": "General Information"
   },
   {
-   "description": "b. Item ID, serial number",
    "fieldname": "inv_nr",
    "fieldtype": "Data",
    "in_preview": 1,
@@ -104,24 +99,10 @@
    "label": "Further Information"
   },
   {
-   "fieldname": "item_code",
-   "fieldtype": "Link",
-   "label": "Item Code",
-   "options": "Item",
-   "reqd": 1
-  },
-  {
-   "fieldname": "item_desciption",
-   "fieldtype": "Text Editor",
-   "label": "Item Desciption",
-   "read_only": 1
-  },
-  {
    "fieldname": "column_break_10",
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "item_code.item_group",
    "fieldname": "category",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -137,7 +118,6 @@
    "label": "Software"
   },
   {
-   "description": "c. RFID serial",
    "fieldname": "rfid_number",
    "fieldtype": "Data",
    "label": "RFID Number"
@@ -218,7 +198,7 @@
    "options": "Location"
   },
   {
-   "description": "Item should be kept when it is not in use",
+   "description": "Where Equipment should be kept when it is not in use",
    "fieldname": "storage_location",
    "fieldtype": "Link",
    "label": "Storage Location",
@@ -252,7 +232,7 @@
    "link_fieldname": "equipment"
   }
  ],
- "modified": "2022-11-24 12:25:55.887131",
+ "modified": "2022-12-04 12:25:55.887131",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment",
@@ -275,6 +255,5 @@
  "show_preview_popup": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "title_field": "item_code",
  "track_changes": 1
 }
