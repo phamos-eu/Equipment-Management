@@ -9,6 +9,7 @@
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
+  "equipment_name",
   "image",
   "status",
   "equipment_details_section",
