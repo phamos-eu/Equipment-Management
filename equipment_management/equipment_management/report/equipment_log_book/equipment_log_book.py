@@ -47,7 +47,7 @@ def get_columns():
 		{
 			"label": _("Location"),
 			"fieldtype": "Link",
-			"fieldname": "location",
+			"fieldname": "storage_location",
 			"options": "Location",
 			"width": 150
 		},
@@ -80,7 +80,7 @@ def get_data(filters):
     eq.indicator,
     eq.status,
     eq.item_code,
-    eq.location,
+    eq.storage_location,
     doctype.name,
     eqmaint.name,
     eqmaint.status
@@ -98,7 +98,7 @@ select
     eq.indicator,
     eq.status,
     eq.item_code,
-    eq.location,
+    eq.storage_location,
     doctype.name,
     eqprob.name,
     eqprob.status
@@ -117,7 +117,7 @@ select
     eq.indicator,
     eq.status,
     eq.item_code,
-    eq.location,
+    eq.storage_location,
     doctype.name,
     eqlog.name,
     eqlog.status
@@ -136,7 +136,7 @@ select
     eq.indicator,
     eq.status,
     eq.item_code,
-    eq.location,
+    eq.storage_location,
     doctype.name,
     rf.name,
     null
@@ -155,7 +155,7 @@ select
     eq.indicator,
     eq.status,
     eq.item_code,
-    eq.location,
+    eq.storage_location,
     doctype.name,
     mem.name,
     mem.type
