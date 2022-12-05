@@ -90,7 +90,7 @@
    "label": "Edit Posting Date and Time"
   },
   {
-   "fetch_from": "equipment.item_code",
+   "fetch_from": "equipment.equipment_name",
    "fieldname": "equipment_name",
    "fieldtype": "Data",
    "label": "Name of Equipment",
@@ -111,7 +111,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-11-08 06:20:02.047325",
+ "modified": "2022-12-04 06:20:02.047325",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Problem Report",

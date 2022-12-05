@@ -103,10 +103,10 @@
    "label": "Edit Posting Date and Time"
   },
   {
-   "fetch_from": "equipment.item_code",
+   "fetch_from": "equipment.equipment_name",
    "fieldname": "equipment_name",
    "fieldtype": "Data",
-   "label": "Name of Equipment",
+   "label": "Equipment Name",
    "read_only": 1
   },
   {
@@ -124,7 +124,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-11-15 06:14:08.586096",
+ "modified": "2022-12-04 06:14:08.586096",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment Maintenance",
