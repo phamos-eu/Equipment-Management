@@ -9,7 +9,7 @@
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
-  "equipment_name2",
+  "equipment_name",
   "image",
   "status",
   "equipment_details_section",
@@ -47,7 +47,7 @@
    "label": "Naming Series"
   },
    {
-   "fieldname": "equipment_name2",
+   "fieldname": "equipment_name",
    "fieldtype": "Data",
    "label": "Equipment Name"
   },
@@ -241,7 +241,7 @@
    "link_fieldname": "equipment"
   }
  ],
- "modified": "2022-12-8 06:29:55.887131",
+ "modified": "2022-12-8 06:30:55.887131",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment",
