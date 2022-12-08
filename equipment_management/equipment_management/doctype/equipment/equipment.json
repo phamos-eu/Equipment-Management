@@ -43,6 +43,7 @@
   {
    "fieldname": "naming_series",
    "fieldtype": "Data",
+   "default": "INV-No-",
    "label": "Naming Series"
   },
    {
@@ -240,7 +241,7 @@
    "link_fieldname": "equipment"
   }
  ],
- "modified": "2022-12-04 12:28:55.887131",
+ "modified": "2022-12-8 00:29:55.887131",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment",
@@ -259,7 +260,6 @@
    "write": 1
   }
  ],
- "quick_entry": 1,
  "show_preview_popup": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
