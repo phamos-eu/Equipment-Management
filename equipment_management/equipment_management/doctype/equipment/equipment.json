@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format: {equipment_name}",
+ "autoname": "naming_series:",
  "creation": "2022-07-12 07:15:07.151197",
  "description": "Here is description of the Equipment",
  "doctype": "DocType",
@@ -43,6 +43,7 @@
   {
    "fieldname": "naming_series",
    "fieldtype": "Data",
+   "default": "INV-No-",
    "label": "Naming Series"
   },
    {
@@ -240,7 +241,7 @@
    "link_fieldname": "equipment"
   }
  ],
- "modified": "2022-12-8 00:28:55.887131",
+ "modified": "2022-12-8 00:29:55.887131",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment",
