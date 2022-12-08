@@ -75,7 +75,7 @@ def get_columns():
 def get_data(filters):
 	equipment = filters.get('equipment')
 	query = '''select
-    IFNULL(eqmaint.posting_date, eqmaint.modified) pd,
+    IFNULL(CONCAT(eqmaint.posting_date,' ',eqmaint.posting_time), eqmaint.modified) pd,
     eq.name,
     eq.indicator,
     eq.status,
@@ -93,7 +93,7 @@ where
     doctype.name = 'Equipment Maintenance'
 union
 select
-    IFNULL(eqprob.posting_date, eqprob.modified),
+    IFNULL(CONCAT(eqprob.posting_date,' ',eqprob.posting_time), eqprob.modified),
     eq.name,
     eq.indicator,
     eq.status,
@@ -131,7 +131,7 @@ where
 
 union
 select
-    IFNULL(rf.posting_date, rf.modified),
+    IFNULL(CONCAT(rf.posting_date,' ',rf.posting_time), rf.modified),
     eq.name,
     eq.indicator,
     eq.status,
@@ -150,7 +150,7 @@ where
 
 union
 select
-    IFNULL(mem.posting_date, mem.modified),
+    IFNULL(CONCAT(mem.posting_date,' ',mem.posting_time), mem.modified),
     eq.name,
     eq.indicator,
     eq.status,
