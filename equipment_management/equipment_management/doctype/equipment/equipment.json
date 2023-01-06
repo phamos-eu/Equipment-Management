@@ -9,19 +9,23 @@
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
-  "equipment_name",
   "image",
   "status",
   "equipment_details_section",
   "inv_nr",
   "last_location",
+  "last_location_date",
   "storage_location",
+  "storage_location_date",
+  "days",
   "serial_number",
   "column_break_8",
   "ec_inventorynumber",
   "responsible_officer",
   "location_status",
   "section_break_7",
+  "item_code",
+  "item_desciption",
   "column_break_10",
   "category",
   "software",
@@ -43,15 +47,11 @@
   {
    "fieldname": "naming_series",
    "fieldtype": "Data",
-   "default": "INV-No-",
    "label": "Naming Series"
   },
-   {
-   "fieldname": "equipment_name",
-   "fieldtype": "Data",
-   "label": "Equipment Name"
-  },
   {
+   "fetch_from": "item_code.image",
+   "fetch_if_empty": 1,
    "fieldname": "image",
    "fieldtype": "Attach Image",
    "hidden": 1,
@@ -63,8 +63,6 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "in_preview": 1,
-   "hidden": 1,
-   "default": "Working",
    "in_standard_filter": 1,
    "label": "Status",
    "options": "\nWorking\nNot Working"
@@ -75,6 +73,7 @@
    "label": "General Information"
   },
   {
+   "description": "b. Item ID, serial number",
    "fieldname": "inv_nr",
    "fieldtype": "Data",
    "in_preview": 1,
@@ -112,6 +111,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "fetch_from": "item_code.item_group",
    "fieldname": "category",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -127,6 +127,7 @@
    "label": "Software"
   },
   {
+   "description": "c. RFID serial",
    "fieldname": "rfid_number",
    "fieldtype": "Data",
    "label": "RFID Number"
@@ -207,7 +208,7 @@
    "options": "Location"
   },
   {
-   "description": "Where Equipment should be kept when it is not in use",
+   "description": "Item should be kept when it is not in use",
    "fieldname": "storage_location",
    "fieldtype": "Link",
    "label": "Storage Location",
@@ -218,6 +219,38 @@
    "fieldname": "location_status",
    "fieldtype": "Data",
    "label": "Location Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_location_date",
+   "fieldtype": "Date",
+   "label": "Last Location Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "storage_location_date",
+   "fieldtype": "Date",
+   "label": "Storage Location Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "label": "Item Code",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item_desciption",
+   "fieldtype": "Text Editor",
+   "label": "Item Desciption",
+   "read_only": 1
+  },
+  {
+   "description": "Days Since Storage Location and Location did not match.",
+   "fieldname": "days",
+   "fieldtype": "Data",
+   "label": "Days",
    "read_only": 1
   }
  ],
@@ -241,7 +274,7 @@
    "link_fieldname": "equipment"
   }
  ],
- "modified": "2022-12-8 06:30:55.887131",
+ "modified": "2023-01-06 06:48:00.455304",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment",
@@ -260,8 +293,10 @@
    "write": 1
   }
  ],
+ "quick_entry": 1,
  "show_preview_popup": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
+ "title_field": "item_code",
  "track_changes": 1
 }

@@ -84,5 +84,12 @@ frappe.ui.form.on('Equipment', {
 		$('button[data-doctype="Equipment Maintenance"]').hide()
 		$('button[data-doctype="Manual Equipment Movement"]').hide()
 		
+	},
+	// set current date when equipment location changed
+	last_location: function(frm) {
+		frm.set_value('last_location_date',frappe.datetime.now_date())
+	},
+	storage_location: function(frm) {
+		frm.set_value('last_location_date',frappe.datetime.now_date())
 	}
 });
