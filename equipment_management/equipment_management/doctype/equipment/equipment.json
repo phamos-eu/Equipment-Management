@@ -17,7 +17,6 @@
   "last_location_date",
   "storage_location",
   "storage_location_date",
-  "days",
   "serial_number",
   "column_break_8",
   "ec_inventorynumber",
@@ -245,13 +244,6 @@
    "fieldtype": "Text Editor",
    "label": "Item Desciption",
    "read_only": 1
-  },
-  {
-   "description": "Days Since Storage Location and Location did not match.",
-   "fieldname": "days",
-   "fieldtype": "Data",
-   "label": "Days",
-   "read_only": 1
   }
  ],
  "image_field": "image",
@@ -274,7 +266,7 @@
    "link_fieldname": "equipment"
   }
  ],
- "modified": "2023-01-06 06:48:00.455304",
+ "modified": "2023-01-06 11:18:02.016378",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment",

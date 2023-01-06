@@ -90,6 +90,6 @@ frappe.ui.form.on('Equipment', {
 		frm.set_value('last_location_date',frappe.datetime.now_date())
 	},
 	storage_location: function(frm) {
-		frm.set_value('last_location_date',frappe.datetime.now_date())
+		frm.set_value('storage_location_date',frappe.datetime.now_date())
 	}
 });
