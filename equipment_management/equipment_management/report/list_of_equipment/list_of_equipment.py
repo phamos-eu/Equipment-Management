@@ -60,12 +60,6 @@ def get_columns(filters):
 			"fieldname": "indicator",
 			"fieldtype": "Data",
 			"hidden": 1,	
-		},
-		{
-			"label": "Days Since Equipment is Out",
-			"fieldname": "days",
-			"fieldtype": "Int",
-			"width": "100"
 		}
 	]
 	return columns
@@ -92,13 +86,4 @@ def get_data(filters):
 	
 	conditions = get_conditions(filters)
 	data = frappe.db.get_all("Equipment", fields=['name','item_code','storage_location','location_status','category','status','serial_number','indicator'], filters=conditions, order_by='name')
-	query = f'select name, DATEDIFF(storage_location_date, last_location_date) as days from `tabEquipment` where storage_location != last_location order by name'
-	diff_query = frappe.db.sql(query,as_dict=1)
-
-	for i in diff_query:
-		for j in data:
-			if (i.get('name') == j.get('name')):
-				j['days'] = i.get('days')
-			else:
-				j['days'] = ''
 	return data
