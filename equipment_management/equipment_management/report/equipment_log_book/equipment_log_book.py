@@ -166,6 +166,26 @@ where
     eq.name = mem.equipment and
     eq.name = "{4}"  and
     doctype.name = 'Manual Equipment Movement'
-    order by `pd` desc'''.format(equipment,equipment,equipment,equipment,equipment)
+
+union
+select
+    rl.datetime,
+    eq.name,
+    eq.indicator,
+    eq.status,
+    eq.item_code,
+    rl.location,
+    doctype.name,
+    rl.name,
+    null
+from
+    `tabEquipment` eq,`tabRFID Logs` rl,`tabDocType` doctype
+where
+    eq.rfid_number = rl.id and
+    eq.name = "{5}" and
+    doctype.name = 'RFID Logs'
+
+order by `pd` desc
+	'''.format(equipment,equipment,equipment,equipment,equipment,equipment)
 	data = frappe.db.sql(query)
 	return data
