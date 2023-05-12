@@ -236,8 +236,7 @@
    "fieldname": "item_code",
    "fieldtype": "Link",
    "label": "Item Code",
-   "options": "Item",
-   "reqd": 1
+   "options": "Item"
   },
   {
    "fieldname": "item_desciption",
@@ -266,7 +265,7 @@
    "link_fieldname": "equipment"
   }
  ],
- "modified": "2023-01-06 11:18:02.016378",
+ "modified": "2023-05-12 09:58:36.494952",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment",
