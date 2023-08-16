@@ -12,6 +12,7 @@
   "image",
   "status",
   "equipment_details_section",
+  "equipment_name",
   "inv_nr",
   "last_location",
   "last_location_date",
@@ -128,8 +129,11 @@
   {
    "description": "c. RFID serial",
    "fieldname": "rfid_number",
-   "fieldtype": "Data",
-   "label": "RFID Number"
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "RFID Number",
+   "options": "RFID Tag",
+   "unique": 1
   },
   {
    "collapsible": 1,
@@ -243,6 +247,11 @@
    "fieldtype": "Text Editor",
    "label": "Item Desciption",
    "read_only": 1
+  },
+  {
+   "fieldname": "equipment_name",
+   "fieldtype": "Data",
+   "label": "Equipment Name"
   }
  ],
  "image_field": "image",
@@ -265,7 +274,7 @@
    "link_fieldname": "equipment"
   }
  ],
- "modified": "2023-05-12 09:58:36.494952",
+ "modified": "2023-08-02 08:51:16.090175",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment",
