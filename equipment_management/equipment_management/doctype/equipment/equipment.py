@@ -13,3 +13,11 @@ def problem_report_exist(name):
 	if pr_doc:
 		return 1
 	return 0
+
+@frappe.whitelist()
+def create_rfid_tag(rfid_number):
+	if not frappe.db.exists("RFID Tag", rfid_number):
+		frappe.get_doc({
+			"doctype": "RFID Tag",
+			"title": rfid_number
+		}).insert()
