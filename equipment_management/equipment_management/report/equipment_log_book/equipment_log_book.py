@@ -67,13 +67,28 @@ def get_columns():
 		{
 			"label": "Status",
 			"fieldname": "Data",
-			"fieldtype": "status",
+			"fieldtype": "eqmaint_status",
 			"width": 150
 		}
 	]
 	return columns
 def get_data(filters):
 	equipment = filters.get('equipment')
+	equipment_status_filter = ""
+	if "equipment_status" in filters:
+		equipment_status_filter = "and eq.status='{}'".format(filters["equipment_status"])
+	item_code_filter = ""
+	if "item_code" in filters:
+		item_code_filter = "and eq.item_code='{}'".format(filters["item_code"])
+	reference_type_filter = ""
+	if "reference_type" in filters:
+		reference_type_filter = "and doctype.name='{}'".format(filters["reference_type"])
+	reference_type_filter = ""
+	if "reference_type" in filters:
+		reference_type_filter = "and doctype.name='{}'".format(filters["reference_type"])
+	maintenance_status_filter = ""
+	if "maintenance_status" in filters:
+		maintenance_status_filter = "and eqmaint.status='{}'".format(filters["maintenance_status"])
 	query = '''select
     IFNULL(CONCAT(eqmaint.posting_date,' ',eqmaint.posting_time), eqmaint.modified) pd,
     eq.name,
@@ -83,7 +98,7 @@ def get_data(filters):
     eq.storage_location,
     doctype.name,
     eqmaint.name,
-    eqmaint.status
+    eqmaint.status eqmaint_status
 
 from 
     `tabEquipment` eq,`tabEquipment Maintenance` eqmaint,`tabDocType` doctype
@@ -91,6 +106,7 @@ where
     eq.name = eqmaint.equipment and
     eq.name = "{0}" and
     doctype.name = 'Equipment Maintenance'
+	{6} {7} {8} {9}
 union
 select
     IFNULL(CONCAT(eqprob.posting_date,' ',eqprob.posting_time), eqprob.modified),
@@ -109,7 +125,7 @@ where
     eq.name = eqprob.equipment and
     eq.name = "{1}" and
     doctype.name = 'Problem Report'
-
+	{6} {7} {8}
 union
 select
     IFNULL(eqlog.posting_date, eqlog.modified),
@@ -128,7 +144,7 @@ where
     eq.name = eqlog.equipment and
     eq.name = "{2}" and
     doctype.name = 'Equipment Log'
-
+	{6} {7} {8}
 union
 select
     IFNULL(CONCAT(rf.posting_date,' ',rf.posting_time), rf.modified),
@@ -147,7 +163,7 @@ where
     eq.name = rf.equipment and
     eq.name = "{3}" and
     doctype.name = 'RFID Trace'
-
+	{6} {7} {8}
 union
 select
     IFNULL(CONCAT(mem.posting_date,' ',mem.posting_time), mem.modified),
@@ -166,7 +182,7 @@ where
     eq.name = mem.equipment and
     eq.name = "{4}"  and
     doctype.name = 'Manual Equipment Movement'
-
+	{6} {7} {8}
 union
 select
     rl.datetime,
@@ -184,8 +200,9 @@ where
     eq.rfid_number = rl.id and
     eq.name = "{5}" and
     doctype.name = 'RFID Logs'
-
+	{6} {7} {8}
 order by `pd` desc
-	'''.format(equipment,equipment,equipment,equipment,equipment,equipment)
+	'''.format(equipment,equipment,equipment,equipment,equipment,equipment, equipment_status_filter, item_code_filter, reference_type_filter, maintenance_status_filter)
+	print(query)
 	data = frappe.db.sql(query)
 	return data
