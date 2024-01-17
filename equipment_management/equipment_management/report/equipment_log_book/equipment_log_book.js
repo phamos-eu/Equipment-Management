@@ -11,7 +11,32 @@ frappe.query_reports["Equipment Log Book"] = {
 			"mandatory": 1,
 			"options": "Equipment",
 			"wildcard_filter": 0
-		   }
+        },
+        {
+			"fieldname": "equipment_status",
+			"fieldtype": "Select",
+			"label": "Equipment Status",
+			"options": "Working\nNot Working",
+			"wildcard_filter": 0
+        },
+        {
+			"label": "Item Code",
+			"fieldtype": "Link",
+			"fieldname": "item_code",
+			"options": "Item"
+		},
+        {
+			"label": "Reference Type",
+			"fieldname": "reference_type",
+			"fieldtype": "Link",
+            "options": "DocType"
+		},
+        {
+			"label": "Maintenance Status",
+			"fieldname": "maintenance_status",
+			"fieldtype": "Select",
+            "options": "Pending\nRepair Needed\nCompleted"
+		}
 	],
 
 	onload: function(report) {

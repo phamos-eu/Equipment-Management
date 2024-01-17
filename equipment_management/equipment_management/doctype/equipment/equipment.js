@@ -84,6 +84,13 @@ frappe.ui.form.on('Equipment', {
 		$('button[data-doctype="Equipment Maintenance"]').hide()
 		$('button[data-doctype="Manual Equipment Movement"]').hide()
 		
+		frm.set_query("storage_location", function() {
+			return {
+				"filters": {
+					"is_group": 0
+				}
+			};
+		});
 	},
 	// set current date when equipment location changed
 	last_location: function(frm) {
@@ -91,5 +98,31 @@ frappe.ui.form.on('Equipment', {
 	},
 	storage_location: function(frm) {
 		frm.set_value('storage_location_date',frappe.datetime.now_date())
+	},
+
+	generate_rfid_number: function(frm){
+		function generateRFID() {
+			// EPC format: 96 bits (12 bytes)
+			const epcBits = Array.from({ length: 96 }, () => Math.round(Math.random()));
+			const epcHex = epcBits
+				.map((bit, index) => (index % 8 === 7 ? bit.toString() : bit.toString()))
+				.join('')
+				.match(/.{1,8}/g)
+				.map(byte => parseInt(byte, 2).toString(16).padStart(2, '0'))
+				.join('');
+		
+			return epcHex.toUpperCase();
+		}
+		const rfidNumber = generateRFID();
+		frm.set_value("rfid_number", rfidNumber)
+	},
+
+	before_save: function(frm){
+		frappe.call({
+			method: "equipment_management.equipment_management.doctype.equipment.equipment.create_rfid_tag",
+			args: {
+				rfid_number: frm.doc.rfid_number
+			}
+		})
 	}
 });
