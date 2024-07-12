@@ -1,0 +1,102 @@
+{% extends "templates/web.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>List of Equipment</h1>
+    
+    <!-- Filters section -->
+    <div class="row">
+        <div class="col-md-3">
+            <label for="filter-name">Name:</label>
+            <input type="text" id="filter-name" class="form-control">
+        </div>
+        <div class="col-md-3">
+            <label for="filter-status">Status:</label>
+            <select id="filter-status" class="form-control">
+                <option value="">All</option>
+                <option value="Working">Working</option>
+                <option value="Not Working">Not Working</option>
+            </select>
+        </div>
+        <!-- Add more filters as needed -->
+        <div class="col-md-3">
+            <label for="filter-category">Category:</label>
+            <input type="text" id="filter-category" class="form-control">
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-primary" onclick="applyFilters()">Apply Filters</button>
+        </div>
+    </div>
+    
+    <br>
+    
+    <!-- Table section -->
+    <div class="row">
+        <div class="col-md-12">
+            <table id="equipment-table" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Item Code</th>
+                        <th>Location</th>
+                        <th>Location Status</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                        <th>Serial Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table rows will be populated dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    frappe.ready(function() {
+        // JavaScript code to fetch data and populate the table
+        function fetchData(filters) {
+            frappe.call({
+                method: "equipment_management.equipment_management.report.list_of_equipment.list_of_equipment.get_data",
+                args: { filters: filters },
+                callback: function(response) {
+                    renderTable(response.message);
+                }
+            });
+        }
+
+        function renderTable(data) {
+            var tableBody = document.querySelector("#equipment-table tbody");
+            tableBody.innerHTML = "";
+
+            data.forEach(function(row) {
+                var newRow = `
+                    <tr>
+                        <td>${row.name}</td>
+                        <td>${row.item_code}</td>
+                        <td>${row.storage_location}</td>
+                        <td>${row.location_status}</td>
+                        <td>${row.category}</td>
+                        <td>${row.status}</td>
+                        <td>${row.serial_number}</td>
+                    </tr>
+                `;
+                tableBody.innerHTML += newRow;
+            });
+        }
+
+        function applyFilters() {
+            var filters = {
+                name: document.getElementById("filter-name").value.trim(),
+                status: document.getElementById("filter-status").value.trim(),
+                category: document.getElementById("filter-category").value.trim(),
+            };
+            fetchData(filters);
+        }
+
+        // Initial load
+        fetchData({});
+    });
+</script>
+{% endblock %}

@@ -67,23 +67,23 @@ def get_columns(filters):
 def get_conditions(filters):
 	conditions = {}
 
-	if filters.name:
+	if "name" in filters:
 		conditions["name"] = filters.name
 		return conditions
 
-	if filters.status:
+	if "status" in filters:
 		conditions["status"] = filters.status
 
-	if filters.item_code:
+	if "item_code" in filters:
 		conditions["item_code"] = filters.item_code
 
-	if filters.category:
+	if "category" in filters:
 		conditions["category"] = filters.category
 
 	return conditions
 
+@frappe.whitelist()
 def get_data(filters):
-	
 	conditions = get_conditions(filters)
 	data = frappe.db.get_all("Equipment", fields=['name','item_code','storage_location','location_status','category','status','serial_number','indicator'], filters=conditions, order_by='name')
 	return data
