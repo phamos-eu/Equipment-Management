@@ -1,5 +1,14 @@
 {% extends "templates/web.html" %}
 
+{% block style %}
+    <!-- Add Awesomplete CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.css">
+{% endblock %}
+
+{% block script %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.js"></script>
+{% endblock %}
+
 {% block content %}
 <div class="container">
     <h1>List of Equipment</h1>
@@ -8,11 +17,11 @@
     <div class="row">
         <div class="col-md-2">
             <label for="filter-name">Name:</label>
-            <input type="text" id="filter-name" class="form-control">
+            <input type="text" id="filter-name" class="form-control awesomplete" data-minchars="0" onchange="frappe.applyFilters()">
         </div>
         <div class="col-md-2">
             <label for="filter-status">Status:</label>
-            <select id="filter-status" class="form-control">
+            <select id="filter-status" class="form-control" onchange="frappe.applyFilters()">
                 <option value="">All</option>
                 <option value="Working">Working</option>
                 <option value="Not Working">Not Working</option>
@@ -20,11 +29,11 @@
         </div>
         <div class="col-md-2">
             <label for="filter-item">Item:</label>
-            <input type="text" id="filter-item" class="form-control">
+            <input type="text" id="filter-item" class="form-control awesomplete" data-minchars="0" onchange="frappe.applyFilters()">
         </div>
         <div class="col-md-2">
             <label for="filter-category">Category:</label>
-            <input type="text" id="filter-category" class="form-control">
+            <input type="text" id="filter-category" class="form-control awesomplete" data-minchars="0" onchange="frappe.applyFilters()">
         </div>
         <div class="col-md-2">
             <button class="btn btn-primary" onclick="frappe.applyFilters()">Apply Filters</button>
@@ -101,6 +110,40 @@
 
         // Initial load
         fetchData({});
+
+        var apply_awesomplete = function(fieldname, doctype){
+            var awesomplete = new Awesomplete(document.getElementById(fieldname), {
+                minChars: 0,
+                autoFirst: true,
+                replace: function (text) {
+                    this.input.value = text.value;
+                }
+            });
+
+            document.getElementById(fieldname).addEventListener("input", function () {
+                if (this.value.length >= 1) {
+                    frappe.call({
+                        method: "frappe.client.get_list",
+                        args: {
+                            doctype: doctype,
+                            fields: ["name"],
+                            filters: { "name": ["like", "%" + this.value + "%"] },
+                            limit: 10
+                        },
+                        callback: function (response) {
+                            var list = response.message.map(function (item) {
+                                return { label: item.name, value: item.name };
+                            });
+                            awesomplete.list = list;
+                        }
+                    });
+                }
+            });
+        }
+
+        apply_awesomplete("filter-name", "Equipment")
+        apply_awesomplete("filter-item", "Item")
+        apply_awesomplete("filter-category", "Item Group")
     });
 </script>
 {% endblock %}

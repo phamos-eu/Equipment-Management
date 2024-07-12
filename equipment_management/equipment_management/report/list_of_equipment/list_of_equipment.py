@@ -65,9 +65,8 @@ def get_columns(filters):
 	return columns
 
 def get_conditions(filters):
-	if type(filters) == "str":
+	if type(filters) == str:
 		filters = json.loads(filters or {})
-	print(filters)
 	conditions = {}
 
 	if "name" in filters and filters["name"]:
