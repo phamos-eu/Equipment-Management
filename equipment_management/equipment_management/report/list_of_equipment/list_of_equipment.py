@@ -1,7 +1,7 @@
 # Copyright (c) 2022, Deepak Kumar and contributors
 # For license information, please see license.txt
 
-import frappe
+import frappe, json
 from frappe import _
 
 def execute(filters=None):
@@ -65,25 +65,27 @@ def get_columns(filters):
 	return columns
 
 def get_conditions(filters):
+	if type(filters) == str:
+		filters = json.loads(filters or {})
 	conditions = {}
 
-	if filters.name:
-		conditions["name"] = filters.name
+	if "name" in filters and filters["name"]:
+		conditions["name"] = filters["name"]
 		return conditions
 
-	if filters.status:
-		conditions["status"] = filters.status
+	if "status" in filters and filters["status"]:
+		conditions["status"] = filters["status"]
 
-	if filters.item_code:
-		conditions["item_code"] = filters.item_code
+	if "item_code" in filters and filters["item_code"]:
+		conditions["item_code"] = filters["item_code"]
 
-	if filters.category:
-		conditions["category"] = filters.category
+	if "category" in filters and filters["category"]:
+		conditions["category"] = filters["category"]
 
 	return conditions
 
+@frappe.whitelist()
 def get_data(filters):
-	
 	conditions = get_conditions(filters)
 	data = frappe.db.get_all("Equipment", fields=['name','item_code','storage_location','location_status','category','status','serial_number','indicator'], filters=conditions, order_by='name')
 	return data
