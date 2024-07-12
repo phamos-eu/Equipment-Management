@@ -1,7 +1,7 @@
 # Copyright (c) 2022, Deepak Kumar and contributors
 # For license information, please see license.txt
 
-import frappe
+import frappe, json
 from frappe import _
 
 def execute(filters=None):
@@ -65,20 +65,22 @@ def get_columns(filters):
 	return columns
 
 def get_conditions(filters):
+	filters = json.loads(filters or {})
+	print(filters)
 	conditions = {}
 
-	if "name" in filters:
-		conditions["name"] = filters.name
+	if "name" in filters and filters["name"]:
+		conditions["name"] = filters["name"]
 		return conditions
 
-	if "status" in filters:
-		conditions["status"] = filters.status
+	if "status" in filters and filters["status"]:
+		conditions["status"] = filters["status"]
 
-	if "item_code" in filters:
-		conditions["item_code"] = filters.item_code
+	if "item_code" in filters and filters["item_code"]:
+		conditions["item_code"] = filters["item_code"]
 
-	if "category" in filters:
-		conditions["category"] = filters.category
+	if "category" in filters and filters["category"]:
+		conditions["category"] = filters["category"]
 
 	return conditions
 

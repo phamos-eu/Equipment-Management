@@ -6,11 +6,11 @@
     
     <!-- Filters section -->
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <label for="filter-name">Name:</label>
             <input type="text" id="filter-name" class="form-control">
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <label for="filter-status">Status:</label>
             <select id="filter-status" class="form-control">
                 <option value="">All</option>
@@ -18,13 +18,16 @@
                 <option value="Not Working">Not Working</option>
             </select>
         </div>
-        <!-- Add more filters as needed -->
-        <div class="col-md-3">
+        <div class="col-md-2">
+            <label for="filter-item">Item:</label>
+            <input type="text" id="filter-item" class="form-control">
+        </div>
+        <div class="col-md-2">
             <label for="filter-category">Category:</label>
             <input type="text" id="filter-category" class="form-control">
         </div>
-        <div class="col-md-3">
-            <button class="btn btn-primary" onclick="applyFilters()">Apply Filters</button>
+        <div class="col-md-2">
+            <button class="btn btn-primary" onclick="frappe.applyFilters()">Apply Filters</button>
         </div>
     </div>
     
@@ -86,10 +89,11 @@
             });
         }
 
-        function applyFilters() {
+        frappe.applyFilters = function applyFilters() {
             var filters = {
                 name: document.getElementById("filter-name").value.trim(),
                 status: document.getElementById("filter-status").value.trim(),
+                item_code: document.getElementById("filter-item").value.trim(),
                 category: document.getElementById("filter-category").value.trim(),
             };
             fetchData(filters);
