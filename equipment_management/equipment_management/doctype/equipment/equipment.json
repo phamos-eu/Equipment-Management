@@ -8,6 +8,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "type",
   "naming_series",
   "image",
   "status",
@@ -259,6 +260,12 @@
    "fieldname": "generate_rfid_number",
    "fieldtype": "Button",
    "label": "Generate RFID Number"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Equipment\nAccessorie"
   }
  ],
  "image_field": "image",
@@ -281,7 +288,7 @@
    "link_fieldname": "equipment"
   }
  ],
- "modified": "2024-01-11 17:02:16.667046",
+ "modified": "2024-01-17 16:42:05.192509",
  "modified_by": "Administrator",
  "module": "Equipment Management",
  "name": "Equipment",
