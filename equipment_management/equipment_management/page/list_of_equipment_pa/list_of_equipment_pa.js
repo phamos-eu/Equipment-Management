@@ -25,7 +25,7 @@ frappe.pages['list-of-equipment-pa'].on_page_load = function(wrapper) {
     fetchData({});
 
     function renderTable(rows){
-        const datatable = new DataTable('#datatable', {
+        const datatable = new frappe.DataTable('#datatable', {
             columns: ["ID", "item Code", "Location", "Location Status", "Category", "Status", "Serial Number"],
             data: rows,
             checkboxColumn: true,
