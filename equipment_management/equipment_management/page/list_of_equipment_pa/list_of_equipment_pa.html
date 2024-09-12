@@ -1,0 +1,32 @@
+<!-- Filters section -->
+<div class="row">
+    <div class="col-md-2">
+        <label for="filter-name">Name:</label>
+        <input type="text" id="filter-name" class="form-control awesomplete" data-minchars="0" onchange="frappe.applyFilters()">
+    </div>
+    <div class="col-md-2">
+        <label for="filter-status">Status:</label>
+        <select id="filter-status" class="form-control" onchange="frappe.applyFilters()">
+            <option value="">All</option>
+            <option value="Working">Working</option>
+            <option value="Not Working">Not Working</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label for="filter-item">Item:</label>
+        <input type="text" id="filter-item" class="form-control awesomplete" data-minchars="0" onchange="frappe.applyFilters()">
+    </div>
+    <div class="col-md-2">
+        <label for="filter-category">Category:</label>
+        <input type="text" id="filter-category" class="form-control awesomplete" data-minchars="0" onchange="frappe.applyFilters()">
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-primary" onclick="frappe.applyFilters()">Apply Filters</button>
+    </div>
+</div>
+
+<br>
+
+<!-- Data table -->
+<div id="datatable"></div>
+

@@ -87,5 +87,19 @@ def get_conditions(filters):
 @frappe.whitelist()
 def get_data(filters):
 	conditions = get_conditions(filters)
-	data = frappe.db.get_all("Equipment", fields=['name','item_code','storage_location','location_status','category','status','serial_number','indicator'], filters=conditions, order_by='name')
-	return data
+	data = frappe.db.get_all("Equipment", 
+						  fields=['name',
+						  'item_code',
+						  'storage_location',
+						  'location_status',
+						  'category',
+						  'status',
+						  'serial_number',
+						  ], 
+						  filters=conditions, 
+						  order_by='name',
+						  as_list=True)
+	new_data = []
+	for d in data:
+		new_data.append(list(d))
+	return new_data
