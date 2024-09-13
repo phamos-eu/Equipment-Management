@@ -10,7 +10,7 @@ frappe.pages['list-of-equipment-pa'].on_page_load = function(wrapper) {
     // Fetch and render data
     frappe.fetchData = function fetchData(filters) {
         frappe.call({
-            method: 'equipment_management.equipment_management.report.list_of_equipment.list_of_equipment.get_data',
+            method: 'equipment_management.equipment_management.page.list_of_equipment_pa.list_of_equipment_pa.get_data',
             args: {
                 filters: filters
             },
