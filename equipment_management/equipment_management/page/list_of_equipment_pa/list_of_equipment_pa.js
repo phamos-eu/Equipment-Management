@@ -8,7 +8,7 @@ frappe.pages['list-of-equipment-pa'].on_page_load = function(wrapper) {
     $(frappe.render_template("list_of_equipment_pa", {})).appendTo(page.body);
 
     // Fetch and render data
-    function fetchData(filters) {
+    frappe.fetchData = function fetchData(filters) {
         frappe.call({
             method: 'equipment_management.equipment_management.report.list_of_equipment.list_of_equipment.get_data',
             args: {
@@ -21,8 +21,10 @@ frappe.pages['list-of-equipment-pa'].on_page_load = function(wrapper) {
         });
     }
 
+    add_filters(page)
+
     // Fetch data on page load
-    fetchData({});
+    frappe.fetchData({});
 
     function renderTable(rows){
         const datatable = new frappe.DataTable('#datatable', {
@@ -68,48 +70,50 @@ frappe.pages['list-of-equipment-pa'].on_page_load = function(wrapper) {
             inlineFilters: true
         });
     }
-
-    frappe.applyFilters = function applyFilters() {
-        var filters = {
-            name: document.getElementById("filter-name").value.trim(),
-            status: document.getElementById("filter-status").value.trim(),
-            item_code: document.getElementById("filter-item").value.trim(),
-            category: document.getElementById("filter-category").value.trim(),
-        };
-        fetchData(filters);
-    }
-
-    var apply_awesomplete = function(fieldname, doctype){
-        var awesomplete = new Awesomplete(document.getElementById(fieldname), {
-            minChars: 0,
-            autoFirst: true,
-            replace: function (text) {
-                this.input.value = text.value;
-            }
-        });
-
-        document.getElementById(fieldname).addEventListener("input", function () {
-            if (this.value.length >= 0) {
-                frappe.call({
-                    method: "frappe.client.get_list",
-                    args: {
-                        doctype: doctype,
-                        fields: ["name"],
-                        filters: { "name": ["like", "%" + this.value + "%"] },
-                        limit: 10
-                    },
-                    callback: function (response) {
-                        var list = response.message.map(function (item) {
-                            return { label: item.name, value: item.name };
-                        });
-                        awesomplete.list = list;
-                    }
-                });
-            }
-        });
-    }
-
-    apply_awesomplete("filter-name", "Equipment")
-    apply_awesomplete("filter-item", "Item")
-    apply_awesomplete("filter-category", "Item Group")
 };
+
+function add_filters(page){
+    let name_filter = page.add_field({
+        fieldname: 'name',
+        label: 'Equipment Name',
+        fieldtype: 'Link',
+        options: "Equipment",
+        change() {
+            let name = name_filter.get_value();
+            frappe.fetchData({name: name})
+        }
+    });
+
+    let status_filter = page.add_field({
+        fieldname: 'status',
+        label: 'Status',
+        fieldtype: 'Select',
+        options: ["", "Working", "Not Working"],
+        change() {
+            let status = status_filter.get_value();
+            frappe.fetchData({status: status})
+        }
+    });
+
+    let item_filter = page.add_field({
+        fieldname: 'item',
+        label: 'Item',
+        fieldtype: 'Link',
+        options: "Item",
+        change() {
+            let item = item_filter.get_value();
+            frappe.fetchData({item_code: item})
+        }
+    });
+
+    let category_filter = page.add_field({
+        fieldname: 'category',
+        label: 'Category',
+        fieldtype: 'Link',
+        options: "Item Group",
+        change() {
+            let category = category_filter.get_value();
+            frappe.fetchData({category: category})
+        }
+    });
+}
